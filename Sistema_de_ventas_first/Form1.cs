@@ -1,5 +1,6 @@
 namespace Sistema_de_ventas_first
 {
+    //comentario para subir
     public partial class Form1 : Form
     {
         public Form1()
