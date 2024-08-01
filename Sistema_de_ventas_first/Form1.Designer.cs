@@ -37,7 +37,7 @@
             // 
             // btingresar
             // 
-            btingresar.Location = new Point(159, 541);
+            btingresar.Location = new Point(157, 527);
             btingresar.Name = "btingresar";
             btingresar.Size = new Size(166, 58);
             btingresar.TabIndex = 0;
