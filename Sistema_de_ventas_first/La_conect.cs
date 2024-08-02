@@ -1,15 +1,16 @@
 ﻿using System;
-using System.Data;
+using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CDConexion
+namespace Sistema_de_ventas_first
 {
-    public class CDConexion
+    internal class La_conect
     {
-        private SqlConnection Conexion = new SqlConnection("Server=.;DataBase= Prueba_de_sistema_de_ventas_1 ;Integrated Security=true");
+        private SqlConnection Conexion = new SqlConnection("Server=.;DataBase=ventas;Integrated Security=true");
 
         public SqlConnection AbrirConexion()
         {
@@ -26,3 +27,4 @@ namespace CDConexion
         }
     }
 }
+
