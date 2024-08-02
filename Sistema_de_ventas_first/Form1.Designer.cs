@@ -31,8 +31,8 @@
             btingresar = new Button();
             label1 = new Label();
             btcontraseña = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            textnombre = new TextBox();
+            textcontraseña = new TextBox();
             SuspendLayout();
             // 
             // btingresar
@@ -63,29 +63,29 @@
             btcontraseña.TabIndex = 2;
             btcontraseña.Text = "CONTRASEÑA";
             // 
-            // textBox1
+            // textnombre
             // 
-            textBox1.Location = new Point(169, 214);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(234, 31);
-            textBox1.TabIndex = 3;
-            textBox1.TextChanged += textBox1_TextChanged;
+            textnombre.Location = new Point(169, 214);
+            textnombre.Name = "textnombre";
+            textnombre.Size = new Size(234, 31);
+            textnombre.TabIndex = 3;
+            textnombre.TextChanged += textBox1_TextChanged;
             // 
-            // textBox2
+            // textcontraseña
             // 
-            textBox2.Location = new Point(207, 315);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(196, 31);
-            textBox2.TabIndex = 4;
-            textBox2.TextChanged += textBox2_TextChanged;
+            textcontraseña.Location = new Point(207, 315);
+            textcontraseña.Name = "textcontraseña";
+            textcontraseña.Size = new Size(196, 31);
+            textcontraseña.TabIndex = 4;
+            textcontraseña.TextChanged += textBox2_TextChanged;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(492, 670);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(textcontraseña);
+            Controls.Add(textnombre);
             Controls.Add(btcontraseña);
             Controls.Add(label1);
             Controls.Add(btingresar);
@@ -102,7 +102,7 @@
         private Button btingresar;
         private Label label1;
         private Label btcontraseña;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox textnombre;
+        private TextBox textcontraseña;
     }
 }
