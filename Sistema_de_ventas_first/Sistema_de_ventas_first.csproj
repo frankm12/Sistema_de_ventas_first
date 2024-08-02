@@ -9,8 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
-<<<<<<< HEAD
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -23,12 +25,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-=======
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
->>>>>>> e779b0a051fbdc67ea827766559a2aebced5fbed
-=======
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
->>>>>>> e779b0a051fbdc67ea827766559a2aebced5fbed
   </ItemGroup>
 
 </Project>
