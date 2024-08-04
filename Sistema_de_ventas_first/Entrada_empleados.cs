@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// La kabra
 namespace Sistema_de_ventas_first
 {
     public partial class Entrada_empleados : Form
