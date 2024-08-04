@@ -29,38 +29,25 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu_princial));
-            label1 = new Label();
             menuStrip1 = new MenuStrip();
             consultaToolStripMenuItem = new ToolStripMenuItem();
-            entradaToolStripMenuItem = new ToolStripMenuItem();
-            sistemaToolStripMenuItem = new ToolStripMenuItem();
-            empleadosToolStripMenuItem = new ToolStripMenuItem();
+            btnconsultaem = new ToolStripMenuItem();
             ordenesToolStripMenuItem = new ToolStripMenuItem();
             pagosToolStripMenuItem = new ToolStripMenuItem();
             clientesToolStripMenuItem = new ToolStripMenuItem();
             detallesDeOrdenesToolStripMenuItem = new ToolStripMenuItem();
             productosToolStripMenuItem = new ToolStripMenuItem();
-            acercaDeToolStripMenuItem = new ToolStripMenuItem();
-            empleadosToolStripMenuItem1 = new ToolStripMenuItem();
+            entradaToolStripMenuItem = new ToolStripMenuItem();
+            btnentradaem = new ToolStripMenuItem();
             ordenesToolStripMenuItem1 = new ToolStripMenuItem();
             pagosToolStripMenuItem1 = new ToolStripMenuItem();
             clientesToolStripMenuItem1 = new ToolStripMenuItem();
             detallesDeOrdenesToolStripMenuItem1 = new ToolStripMenuItem();
             productosToolStripMenuItem1 = new ToolStripMenuItem();
+            sistemaToolStripMenuItem = new ToolStripMenuItem();
+            acercaDeToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Times New Roman", 27F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.Gainsboro;
-            label1.Location = new Point(304, 24);
-            label1.Name = "label1";
-            label1.Size = new Size(255, 41);
-            label1.TabIndex = 0;
-            label1.Text = "Menu Principal";
             // 
             // menuStrip1
             // 
@@ -74,33 +61,18 @@
             // 
             // consultaToolStripMenuItem
             // 
-            consultaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { empleadosToolStripMenuItem, ordenesToolStripMenuItem, pagosToolStripMenuItem, clientesToolStripMenuItem, detallesDeOrdenesToolStripMenuItem, productosToolStripMenuItem });
+            consultaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { btnconsultaem, ordenesToolStripMenuItem, pagosToolStripMenuItem, clientesToolStripMenuItem, detallesDeOrdenesToolStripMenuItem, productosToolStripMenuItem });
             consultaToolStripMenuItem.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
             consultaToolStripMenuItem.Size = new Size(68, 20);
             consultaToolStripMenuItem.Text = "Consulta";
             // 
-            // entradaToolStripMenuItem
+            // btnconsultaem
             // 
-            entradaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { empleadosToolStripMenuItem1, ordenesToolStripMenuItem1, pagosToolStripMenuItem1, clientesToolStripMenuItem1, detallesDeOrdenesToolStripMenuItem1, productosToolStripMenuItem1 });
-            entradaToolStripMenuItem.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            entradaToolStripMenuItem.Name = "entradaToolStripMenuItem";
-            entradaToolStripMenuItem.Size = new Size(61, 20);
-            entradaToolStripMenuItem.Text = "Entrada";
-            // 
-            // sistemaToolStripMenuItem
-            // 
-            sistemaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { acercaDeToolStripMenuItem });
-            sistemaToolStripMenuItem.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            sistemaToolStripMenuItem.Name = "sistemaToolStripMenuItem";
-            sistemaToolStripMenuItem.Size = new Size(63, 20);
-            sistemaToolStripMenuItem.Text = "Sistema";
-            // 
-            // empleadosToolStripMenuItem
-            // 
-            empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
-            empleadosToolStripMenuItem.Size = new Size(184, 22);
-            empleadosToolStripMenuItem.Text = "Empleados";
+            btnconsultaem.Name = "btnconsultaem";
+            btnconsultaem.Size = new Size(184, 22);
+            btnconsultaem.Text = "Empleados";
+            btnconsultaem.Click += empleadosToolStripMenuItem_Click;
             // 
             // ordenesToolStripMenuItem
             // 
@@ -132,17 +104,20 @@
             productosToolStripMenuItem.Size = new Size(184, 22);
             productosToolStripMenuItem.Text = "Productos";
             // 
-            // acercaDeToolStripMenuItem
+            // entradaToolStripMenuItem
             // 
-            acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            acercaDeToolStripMenuItem.Size = new Size(180, 22);
-            acercaDeToolStripMenuItem.Text = "Acerca De";
+            entradaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { btnentradaem, ordenesToolStripMenuItem1, pagosToolStripMenuItem1, clientesToolStripMenuItem1, detallesDeOrdenesToolStripMenuItem1, productosToolStripMenuItem1 });
+            entradaToolStripMenuItem.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            entradaToolStripMenuItem.Name = "entradaToolStripMenuItem";
+            entradaToolStripMenuItem.Size = new Size(61, 20);
+            entradaToolStripMenuItem.Text = "Entrada";
             // 
-            // empleadosToolStripMenuItem1
+            // btnentradaem
             // 
-            empleadosToolStripMenuItem1.Name = "empleadosToolStripMenuItem1";
-            empleadosToolStripMenuItem1.Size = new Size(184, 22);
-            empleadosToolStripMenuItem1.Text = "Empleados";
+            btnentradaem.Name = "btnentradaem";
+            btnentradaem.Size = new Size(184, 22);
+            btnentradaem.Text = "Empleados";
+            btnentradaem.Click += btnentradaem_Click;
             // 
             // ordenesToolStripMenuItem1
             // 
@@ -174,6 +149,20 @@
             productosToolStripMenuItem1.Size = new Size(184, 22);
             productosToolStripMenuItem1.Text = "Productos";
             // 
+            // sistemaToolStripMenuItem
+            // 
+            sistemaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { acercaDeToolStripMenuItem });
+            sistemaToolStripMenuItem.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            sistemaToolStripMenuItem.Name = "sistemaToolStripMenuItem";
+            sistemaToolStripMenuItem.Size = new Size(63, 20);
+            sistemaToolStripMenuItem.Text = "Sistema";
+            // 
+            // acercaDeToolStripMenuItem
+            // 
+            acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
+            acercaDeToolStripMenuItem.Size = new Size(131, 22);
+            acercaDeToolStripMenuItem.Text = "Acerca De";
+            // 
             // Menu_princial
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -181,12 +170,13 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(871, 450);
-            Controls.Add(label1);
             Controls.Add(menuStrip1);
             DoubleBuffered = true;
             MainMenuStrip = menuStrip1;
             Name = "Menu_princial";
             Text = "Menu_princial";
+            WindowState = FormWindowState.Maximized;
+            Load += Menu_princial_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -194,11 +184,9 @@
         }
 
         #endregion
-
-        private Label label1;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem consultaToolStripMenuItem;
-        private ToolStripMenuItem empleadosToolStripMenuItem;
+        private ToolStripMenuItem btnconsultaem;
         private ToolStripMenuItem ordenesToolStripMenuItem;
         private ToolStripMenuItem pagosToolStripMenuItem;
         private ToolStripMenuItem clientesToolStripMenuItem;
@@ -207,7 +195,7 @@
         private ToolStripMenuItem entradaToolStripMenuItem;
         private ToolStripMenuItem sistemaToolStripMenuItem;
         private ToolStripMenuItem acercaDeToolStripMenuItem;
-        private ToolStripMenuItem empleadosToolStripMenuItem1;
+        private ToolStripMenuItem btnentradaem;
         private ToolStripMenuItem ordenesToolStripMenuItem1;
         private ToolStripMenuItem pagosToolStripMenuItem1;
         private ToolStripMenuItem clientesToolStripMenuItem1;

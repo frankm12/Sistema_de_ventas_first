@@ -16,5 +16,12 @@ namespace Sistema_de_ventas_first
         {
             InitializeComponent();
         }
+
+        private void btn_atras_Click(object sender, EventArgs e)
+        {
+            Form Menu_princial = new Menu_princial();
+            Menu_princial.Show();
+            this.Close();
+        }
     }
 }

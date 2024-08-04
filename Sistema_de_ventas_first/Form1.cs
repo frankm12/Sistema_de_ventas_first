@@ -11,7 +11,7 @@ namespace Sistema_de_ventas_first
         private La_conect conexion = new La_conect();
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent();   
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -38,25 +38,27 @@ namespace Sistema_de_ventas_first
                 if (reader.Read())
                 {
                     MessageBox.Show("Login Exitoso", "Sistema");
-                    Menu_princial principal = new Menu_princial();
-                    principal.Show();
+                    Form Menu_princial = new Menu_princial();
+                    Menu_princial.Show();
 
                     this.Hide();
                     conexion.CerrarConexion();
+
                 }
+
                 else
                 {
                     MessageBox.Show("Login Incorrecto", "Sistema");
                     conexion.CerrarConexion();
                 }
-
-
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al ingresar datos: " + ex.Message);
             }
         }
+
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -65,5 +67,6 @@ namespace Sistema_de_ventas_first
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
         }
+
     }
 }

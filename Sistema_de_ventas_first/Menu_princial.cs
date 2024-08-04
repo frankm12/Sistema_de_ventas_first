@@ -16,5 +16,24 @@ namespace Sistema_de_ventas_first
         {
             InitializeComponent();
         }
+
+        private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form Consulta_empleadoscs = new Consulta_empleadoscs();
+            Consulta_empleadoscs.Show();
+            this.Close();
+        }
+
+        private void btnentradaem_Click(object sender, EventArgs e)
+        {
+            Form Entrada_empleados = new Entrada_empleados();
+            Entrada_empleados.Show();
+            this.Close();
+        }
+
+        private void Menu_princial_Load(object sender, EventArgs e)
+        {
+   
+        }
     }
 }
