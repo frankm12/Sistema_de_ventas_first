@@ -9,6 +9,7 @@ namespace Sistema_de_ventas_first
     public partial class Form1 : Form
     {
         private La_conect conexion = new La_conect();
+        //un comentario para subir
         public Form1()
         {
             InitializeComponent();
