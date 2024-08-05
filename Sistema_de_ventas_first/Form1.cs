@@ -8,7 +8,7 @@ namespace Sistema_de_ventas_first
 {
     public partial class Form1 : Form
     {
-        private La_conect conexion = new La_conect();
+        private La_conexion conexion = new La_conexion();
         //un comentario para subir
         public Form1()
         {
@@ -27,7 +27,7 @@ namespace Sistema_de_ventas_first
                 string usuario = textBox1.Text;
                 string contraseña = textBox2.Text;
 
-                La_conect conexion = new La_conect();
+                La_conexion conexion = new La_conexion();
                 SqlConnection conexion_a_base_de_datos = conexion.AbrirConexion();
                 SqlCommand comando = new SqlCommand(query, conexion_a_base_de_datos);
 

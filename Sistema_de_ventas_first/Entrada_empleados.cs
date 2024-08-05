@@ -22,6 +22,45 @@ namespace Sistema_de_ventas_first
             InitializeComponent();
         }
 
+        private void btn_guardar_Click(object sender, EventArgs e, La_conexion la_conect)
+        {
+
+        }
+
+       
+        
+        public void limpiarform()
+        {
+            txt_documento.Clear();
+            txt_nombre.Clear();
+            txt_apellido.Clear();
+            txt_extension.Clear();
+            txt_email.Clear();
+            txt_cargo.Clear();
+        }
+
+
+
+        private void btn_editar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                Editar = true;
+                txt_documento.Text = dataGridView1.CurrentRow.Cells["documento"].Value.ToString();
+                txt_nombre.Text = dataGridView1.CurrentRow.Cells["Nombre"].Value.ToString();
+                txt_apellido.Text = dataGridView1.CurrentRow.Cells["Apellido"].Value.ToString();
+                txt_extension.Text = dataGridView1.CurrentRow.Cells["extension"].Value.ToString();
+                txt_email.Text = dataGridView1.CurrentRow.Cells["Email"].Value.ToString();
+                txt_cargo.Text = dataGridView1.CurrentRow.Cells["Cargo"].Value.ToString();
+                Cbox_oficina.SelectedValue = dataGridView1.CurrentRow.Cells["Id_oficina"].Value.ToString();
+
+            }
+            else
+            {
+                MessageBox.Show("selecciones una fila a editar por favor");
+            }
+        }
+
         private void btn_guardar_Click(object sender, EventArgs e, La_conect la_conect)
         {
 

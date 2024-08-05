@@ -30,7 +30,6 @@
         {
             dataGridView1 = new DataGridView();
             lbl_empleados = new Label();
-            btn_guardar = new Button();
             btn_editar = new Button();
             btn_eliminar = new Button();
             btn_atras = new Button();
@@ -81,6 +80,21 @@
             btn_guardar.Name = "btn_guardar";
             btn_guardar.Size = new Size(75, 23);
             btn_guardar.TabIndex = 20;
+            // 
+            btn_guardar.Text = "Guardar";
+            btn_guardar.UseVisualStyleBackColor = true;
+            btn_editar.Location = new Point(158, 812);
+            btn_editar.Margin = new Padding(4);
+            btn_editar.Name = "btn_editar";
+            btn_editar.Size = new Size(118, 36);
+            btn_editar.TabIndex = 3;
+            btn_editar.Text = "Editar";
+            btn_editar.UseVisualStyleBackColor = true;
+            btn_editar.Click += btn_editar_Click;
+            btn_guardar.UseVisualStyleBackColor = true;
+            // 
+            btn_guardar.Text = "Guardar";
+            btn_guardar.UseVisualStyleBackColor = true;
             // 
             // btn_editar
             // 
@@ -277,7 +291,6 @@
             Controls.Add(btn_atras);
             Controls.Add(btn_eliminar);
             Controls.Add(btn_editar);
-            Controls.Add(btn_guardar);
             Controls.Add(lbl_empleados);
             Controls.Add(dataGridView1);
             Margin = new Padding(4);
@@ -293,7 +306,6 @@
 
         private DataGridView dataGridView1;
         private Label lbl_empleados;
-        private Button btn_guardar;
         private Button btn_editar;
         private Button btn_eliminar;
         private Button btn_atras;
