@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace Sistema_de_ventas_first
 {
+
     public partial class Menu_princial : Form
     {
         public Menu_princial()
