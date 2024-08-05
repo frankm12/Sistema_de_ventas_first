@@ -16,13 +16,18 @@ namespace Sistema_de_ventas_first
     public partial class Entrada_empleados : Form
     {
         private La_conect conexion = new La_conect();
+
         bool Editar = false;
         public Entrada_empleados()
         {
             InitializeComponent();
         }
 
+
+        private void btn_guardar_Click(object sender, EventArgs e, La_conect la_conect)
+
         private void btn_guardar_Click(object sender, EventArgs e, La_conexion la_conect)
+
         {
 
         }
@@ -151,6 +156,7 @@ namespace Sistema_de_ventas_first
 
             conexion.CerrarConexion();
         }
+
 
 
         private void btn_atras_Click(object sender, EventArgs e)
