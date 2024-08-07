@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Sistema_de_ventas_first
 {
-    internal class La_conexion
+    internal class La_conect
     {
         private SqlConnection Conexion = new SqlConnection("Server=.;DataBase=ventas;Integrated Security=true");
 

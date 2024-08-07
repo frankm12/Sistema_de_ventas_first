@@ -8,7 +8,7 @@ namespace Sistema_de_ventas_first
 {
     public partial class Form1 : Form
     {
-        private La_conexion conexion = new La_conexion();
+        private La_conect conexion = new La_conect();
         //un comentario para subir
         public Form1()
         {
@@ -27,7 +27,7 @@ namespace Sistema_de_ventas_first
                 string usuario = textBox1.Text;
                 string contraseña = textBox2.Text;
 
-                La_conexion conexion = new La_conexion();
+                La_conect conexion = new La_conect();
                 SqlConnection conexion_a_base_de_datos = conexion.AbrirConexion();
                 SqlCommand comando = new SqlCommand(query, conexion_a_base_de_datos);
 
@@ -56,6 +56,10 @@ namespace Sistema_de_ventas_first
             catch (Exception ex)
             {
                 MessageBox.Show("Error al ingresar datos: " + ex.Message);
+            }
+            finally
+            {
+                conexion.CerrarConexion();
             }
         }
 

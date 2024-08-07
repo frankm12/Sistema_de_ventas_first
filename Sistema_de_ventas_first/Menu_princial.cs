@@ -36,5 +36,38 @@ namespace Sistema_de_ventas_first
             Entrada_empleados.Show();
             this.Close();
         }
+
+        private void Menu_princial_Load(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void clientesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form entrada_clientes = new Entrada_clientes();
+            entrada_clientes.Show();
+            this.Close();
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form consulta_clientes = new Consulta_clientes();
+            consulta_clientes.Show();
+            this.Close();
+        }
+
+        private void pagosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form entrada_pagos = new Entrada_pagos();
+            entrada_pagos.Show();
+            this.Close();
+        }
+
+        private void pagosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form consulta_pagos = new Consulta_clientes();
+            consulta_pagos.Show();
+            this.Close();
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿using CDConexion;
+﻿
 using Sistema_de_ventas_first;
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace Sistema_de_ventas_first
 {
     public partial class Entrada_empleados : Form
     {
-        private La_conect conexion = new La_conect();
+        private La_conect conexion_2 = new La_conect();
 
         bool Editar = false;
         public Entrada_empleados()
@@ -24,16 +24,6 @@ namespace Sistema_de_ventas_first
         }
 
 
-        private void btn_guardar_Click(object sender, EventArgs e, La_conect la_conect)
-
-        private void btn_guardar_Click(object sender, EventArgs e, La_conexion la_conect)
-
-        {
-
-        }
-
-       
-        
         public void limpiarform()
         {
             txt_documento.Clear();
@@ -48,61 +38,7 @@ namespace Sistema_de_ventas_first
 
         private void btn_editar_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                Editar = true;
-                txt_documento.Text = dataGridView1.CurrentRow.Cells["documento"].Value.ToString();
-                txt_nombre.Text = dataGridView1.CurrentRow.Cells["Nombre"].Value.ToString();
-                txt_apellido.Text = dataGridView1.CurrentRow.Cells["Apellido"].Value.ToString();
-                txt_extension.Text = dataGridView1.CurrentRow.Cells["extension"].Value.ToString();
-                txt_email.Text = dataGridView1.CurrentRow.Cells["Email"].Value.ToString();
-                txt_cargo.Text = dataGridView1.CurrentRow.Cells["Cargo"].Value.ToString();
-                Cbox_oficina.SelectedValue = dataGridView1.CurrentRow.Cells["Id_oficina"].Value.ToString();
 
-            }
-            else
-            {
-                MessageBox.Show("selecciones una fila a editar por favor");
-            }
-        }
-
-        private void btn_guardar_Click(object sender, EventArgs e, La_conect la_conect)
-        {
-
-        }
-
-       
-        
-        public void limpiarform()
-        {
-            txt_documento.Clear();
-            txt_nombre.Clear();
-            txt_apellido.Clear();
-            txt_extension.Clear();
-            txt_email.Clear();
-            txt_cargo.Clear();
-        }
-
-
-
-        private void btn_editar_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                Editar = true;
-                txt_documento.Text = dataGridView1.CurrentRow.Cells["documento"].Value.ToString();
-                txt_nombre.Text = dataGridView1.CurrentRow.Cells["Nombre"].Value.ToString();
-                txt_apellido.Text = dataGridView1.CurrentRow.Cells["Apellido"].Value.ToString();
-                txt_extension.Text = dataGridView1.CurrentRow.Cells["extension"].Value.ToString();
-                txt_email.Text = dataGridView1.CurrentRow.Cells["Email"].Value.ToString();
-                txt_cargo.Text = dataGridView1.CurrentRow.Cells["Cargo"].Value.ToString();
-                Cbox_oficina.SelectedValue = dataGridView1.CurrentRow.Cells["Id_oficina"].Value.ToString();
-
-            }
-            else
-            {
-                MessageBox.Show("selecciones una fila a editar por favor");
-            }
         }
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
@@ -117,12 +53,12 @@ namespace Sistema_de_ventas_first
                     metodos.Eliminar_empleados_boton(Id_empleado);
                     MessageBox.Show("Eliminado correctamente");
 
-                    SqlConnection conexion_a_base_de_datos = conexion.AbrirConexion();
+                    SqlConnection conexion_a_base_de_datos = conexion_2.AbrirConexion();
                     SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM empleados", conexion_a_base_de_datos);
                     DataTable dataTable = new DataTable();
                     dataAdapter.Fill(dataTable);
                     dataGridView1.DataSource = dataTable;
-                    conexion.CerrarConexion();
+                    conexion_2.CerrarConexion();
                 }
                 catch (Exception ex)
                 {
@@ -142,19 +78,7 @@ namespace Sistema_de_ventas_first
         private void Cbox_oficina_SelectedIndexChanged(object sender, EventArgs e)
 
         {
-            SqlConnection sqlConnection = conexion.AbrirConexion();
-            SqlConnection conexion_a_base_de_datos = sqlConnection;
-            SqlCommand comando = new SqlCommand("SELECT id_oficina, ciudad FROM oficinas", conexion_a_base_de_datos);
-            SqlDataReader reader = comando.ExecuteReader();
 
-            DataTable dataTable = new DataTable();
-            dataTable.Load(reader);
-
-            Cbox_oficina.DataSource = dataTable;
-            Cbox_oficina.DisplayMember = "ciudad";
-            Cbox_oficina.ValueMember = "id_oficina";
-
-            conexion.CerrarConexion();
         }
 
 
@@ -170,14 +94,36 @@ namespace Sistema_de_ventas_first
         {
 
         }
+        private void LlenarComboBox()
+        {
+            SqlConnection conexion = conexion_2.AbrirConexion();
+            SqlCommand comando = new SqlCommand("SELECT id_oficina, ciudad FROM oficinas", conexion);
+            SqlDataReader reader = comando.ExecuteReader();
+
+            DataTable dataTable = new DataTable();
+            dataTable.Load(reader);
+
+            Cbox_oficina.DataSource = dataTable;
+            Cbox_oficina.DisplayMember = "ciudad";  // La columna que deseas mostrar
+            Cbox_oficina.ValueMember = "id_oficina";        // El valor que usas como FK
+
+            conexion_2.CerrarConexion();
+        }
 
         private void Entrada_empleados_Load(object sender, EventArgs e)
         {
+            SqlConnection conexion_a_base_de_datos = conexion_2.AbrirConexion();
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM empleados", conexion_a_base_de_datos);
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            dataGridView1.DataSource = dataTable;
+            conexion_2.CerrarConexion();
 
+            LlenarComboBox();
         }
 
         private void btn_guardar2_Click(object sender, EventArgs e)
-        
+
         {
 
             if (Editar == false)
@@ -195,12 +141,12 @@ namespace Sistema_de_ventas_first
                     Metodo metodos = new Metodo();
                     metodos.insertar_empleados_boton(documento, nombre, apellido, extension, email, cargo, oficina);
                     MessageBox.Show("Empleado agregado correctamente");
-                    SqlConnection conexion_a_base_de_datos = conexion.AbrirConexion();
+                    SqlConnection conexion_a_base_de_datos = conexion_2.AbrirConexion();
                     SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM empleados", conexion_a_base_de_datos);
                     DataTable dataTable = new DataTable();
                     dataAdapter.Fill(dataTable);
                     dataGridView1.DataSource = dataTable;
-                    conexion.CerrarConexion();
+                    conexion_2.CerrarConexion();
                     limpiarform();
 
                 }
@@ -227,12 +173,12 @@ namespace Sistema_de_ventas_first
                     metodos.Editar_empleados_boton(documento, nombre, apellido, extension, email, cargo, oficina, Id_empleado);
                     MessageBox.Show("Editado correctamente");
 
-                    SqlConnection conexion_a_base_de_datos = conexion.AbrirConexion();
+                    SqlConnection conexion_a_base_de_datos = conexion_2.AbrirConexion();
                     SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM empleados", conexion_a_base_de_datos);
                     DataTable dataTable = new DataTable();
                     dataAdapter.Fill(dataTable);
                     dataGridView1.DataSource = dataTable;
-                    conexion.CerrarConexion();
+                    conexion_2.CerrarConexion();
                     Editar = false;
                     limpiarform();
                 }
@@ -242,6 +188,26 @@ namespace Sistema_de_ventas_first
                 }
             }
 
+        }
+
+        private void btn_editar_2_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                Editar = true;
+                txt_documento.Text = dataGridView1.CurrentRow.Cells["documento"].Value.ToString();
+                txt_nombre.Text = dataGridView1.CurrentRow.Cells["Nombre"].Value.ToString();
+                txt_apellido.Text = dataGridView1.CurrentRow.Cells["Apellido"].Value.ToString();
+                txt_extension.Text = dataGridView1.CurrentRow.Cells["extension"].Value.ToString();
+                txt_email.Text = dataGridView1.CurrentRow.Cells["Email"].Value.ToString();
+                txt_cargo.Text = dataGridView1.CurrentRow.Cells["Cargo"].Value.ToString();
+                Cbox_oficina.SelectedValue = dataGridView1.CurrentRow.Cells["Id_oficina"].Value.ToString();
+
+            }
+            else
+            {
+                MessageBox.Show("selecciones una fila a editar por favor");
+            }
         }
     }
 }

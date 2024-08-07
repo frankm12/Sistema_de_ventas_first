@@ -13,7 +13,7 @@ namespace Sistema_de_ventas_first
 {
     public partial class Consulta_empleadoscs : Form
     {
-        private La_conect conexion = new La_conect();
+        private La_conect conexion_2 = new La_conect();
         public Consulta_empleadoscs()
         {
             InitializeComponent();
@@ -26,12 +26,12 @@ namespace Sistema_de_ventas_first
 
         private void Empleados_Load_Click(object sender, EventArgs e)
         {
-            SqlConnection conexion_a_base_de_datos = conexion.AbrirConexion();
+            SqlConnection conexion_a_base_de_datos = conexion_2.AbrirConexion();
             SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM empleados", conexion_a_base_de_datos);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
             dataGridView1.DataSource = dataTable;
-            conexion.CerrarConexion();
+            conexion_2.CerrarConexion();
         }
 
         private void btn_atras_Click(object sender, EventArgs e)

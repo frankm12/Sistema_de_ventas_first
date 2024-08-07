@@ -37,10 +37,11 @@
             // 
             // btingresar
             // 
-            btingresar.Location = new Point(157, 527);
+            btingresar.Location = new Point(126, 422);
+            btingresar.Margin = new Padding(2, 2, 2, 2);
             btingresar.Name = "btingresar";
-            btingresar.Size = new Size(166, 58);
-            btingresar.TabIndex = 0;
+            btingresar.Size = new Size(133, 46);
+            btingresar.TabIndex = 3;
             btingresar.Text = "INGRESAR";
             btingresar.UseVisualStyleBackColor = true;
             btingresar.Click += btingresar_Click;
@@ -48,48 +49,51 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(75, 220);
+            label1.Location = new Point(60, 176);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(88, 25);
+            label1.Size = new Size(71, 20);
             label1.TabIndex = 1;
             label1.Text = "USUARIO";
             // 
             // btcontraseña
             // 
             btcontraseña.AutoSize = true;
-            btcontraseña.Location = new Point(75, 315);
+            btcontraseña.Location = new Point(60, 252);
+            btcontraseña.Margin = new Padding(2, 0, 2, 0);
             btcontraseña.Name = "btcontraseña";
-            btcontraseña.Size = new Size(126, 25);
+            btcontraseña.Size = new Size(104, 20);
             btcontraseña.TabIndex = 2;
             btcontraseña.Text = "CONTRASEÑA";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(169, 214);
+            textBox1.Location = new Point(135, 171);
+            textBox1.Margin = new Padding(2, 2, 2, 2);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(234, 31);
-            textBox1.TabIndex = 3;
+            textBox1.Size = new Size(188, 27);
+            textBox1.TabIndex = 1;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(207, 315);
+            textBox2.Location = new Point(166, 252);
+            textBox2.Margin = new Padding(2, 2, 2, 2);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(196, 31);
-            textBox2.TabIndex = 4;
+            textBox2.Size = new Size(158, 27);
+            textBox2.TabIndex = 2;
             textBox2.TextChanged += textBox2_TextChanged;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(492, 670);
+            ClientSize = new Size(394, 536);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(btcontraseña);
             Controls.Add(label1);
             Controls.Add(btingresar);
-            Margin = new Padding(4);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
