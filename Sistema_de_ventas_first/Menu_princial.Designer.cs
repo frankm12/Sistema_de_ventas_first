@@ -57,7 +57,7 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(7, 2, 0, 2);
-            menuStrip1.Size = new Size(995, 28);
+            menuStrip1.Size = new Size(995, 32);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -65,8 +65,9 @@
             // 
             consultaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { empleadosToolStripMenuItem, ordenesToolStripMenuItem, pagosToolStripMenuItem, clientesToolStripMenuItem, detallesDeOrdenesToolStripMenuItem, productosToolStripMenuItem });
             consultaToolStripMenuItem.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            consultaToolStripMenuItem.Image = (Image)resources.GetObject("consultaToolStripMenuItem.Image");
             consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
-            consultaToolStripMenuItem.Size = new Size(89, 24);
+            consultaToolStripMenuItem.Size = new Size(113, 28);
             consultaToolStripMenuItem.Text = "Consulta";
             consultaToolStripMenuItem.Click += consultaToolStripMenuItem_Click;
             // 
@@ -114,7 +115,7 @@
             entradaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { empleadosToolStripMenuItem1, ordenesToolStripMenuItem1, pagosToolStripMenuItem1, clientesToolStripMenuItem1, detallesDeOrdenesToolStripMenuItem1, productosToolStripMenuItem1 });
             entradaToolStripMenuItem.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             entradaToolStripMenuItem.Name = "entradaToolStripMenuItem";
-            entradaToolStripMenuItem.Size = new Size(82, 24);
+            entradaToolStripMenuItem.Size = new Size(82, 28);
             entradaToolStripMenuItem.Text = "Entrada";
             // 
             // empleadosToolStripMenuItem1
@@ -161,7 +162,7 @@
             sistemaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { acercaDeToolStripMenuItem });
             sistemaToolStripMenuItem.Font = new Font("Times New Roman", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             sistemaToolStripMenuItem.Name = "sistemaToolStripMenuItem";
-            sistemaToolStripMenuItem.Size = new Size(81, 24);
+            sistemaToolStripMenuItem.Size = new Size(81, 28);
             sistemaToolStripMenuItem.Text = "Sistema";
             // 
             // acercaDeToolStripMenuItem
