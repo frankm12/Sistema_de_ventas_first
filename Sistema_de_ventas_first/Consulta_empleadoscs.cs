@@ -19,6 +19,7 @@ namespace Sistema_de_ventas_first
             InitializeComponent();
         }
 
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
