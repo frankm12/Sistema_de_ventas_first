@@ -272,12 +272,7 @@
             Controls.Add(btn_eliminar);
             Controls.Add(lbl_empleados);
             Controls.Add(dataGridView1);
-<<<<<<< HEAD
-            MaximizeBox = false;
-            MinimizeBox = false;
-=======
             Margin = new Padding(4, 4, 4, 4);
->>>>>>> 25425129d7e995ddc0e04815dc73f6886307d33d
             Name = "Entrada_empleados";
             Text = "Entrada_empleados";
             Load += Entrada_empleados_Load;
