@@ -9,10 +9,13 @@ namespace Sistema_de_ventas_first
     public partial class Form1 : Form
     {
         private La_conect conexion = new La_conect();
-        //un comentario para subir
+
         public Form1()
         {
             InitializeComponent();
+            // Asociar el evento KeyDown de los TextBox con el manejador
+            textBox1.KeyDown += new KeyEventHandler(textBox_KeyDown);
+            textBox2.KeyDown += new KeyEventHandler(textBox_KeyDown);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -21,13 +24,27 @@ namespace Sistema_de_ventas_first
 
         private void btingresar_Click(object sender, EventArgs e)
         {
+            Ingresar();
+        }
+
+        private void textBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // Evitar el sonido de la tecla Enter en el TextBox
+                e.SuppressKeyPress = true;
+                Ingresar();
+            }
+        }
+
+        private void Ingresar()
+        {
             try
             {
                 string query = "SELECT usuario, contraseña FROM usuarios_ingreso WHERE usuario = @usuario AND contraseña = @contraseña";
                 string usuario = textBox1.Text;
                 string contraseña = textBox2.Text;
 
-                La_conect conexion = new La_conect();
                 SqlConnection conexion_a_base_de_datos = conexion.AbrirConexion();
                 SqlCommand comando = new SqlCommand(query, conexion_a_base_de_datos);
 
@@ -41,17 +58,14 @@ namespace Sistema_de_ventas_first
                     MessageBox.Show("Login Exitoso", "Sistema");
                     Menu_princial principal = new Menu_princial();
                     principal.Show();
-
                     this.Hide();
-                    conexion.CerrarConexion();
                 }
                 else
                 {
                     MessageBox.Show("Login Incorrecto", "Sistema");
-                    conexion.CerrarConexion();
                 }
 
-
+                conexion.CerrarConexion();
             }
             catch (Exception ex)
             {
