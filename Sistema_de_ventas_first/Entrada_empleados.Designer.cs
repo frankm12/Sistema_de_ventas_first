@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
             lbl_empleados = new Label();
-            btn_eliminar = new Button();
             btn_atras = new Button();
             txt_documento = new TextBox();
             lbl_documento = new Label();
@@ -47,50 +45,25 @@
             lbl_oficina = new Label();
             Cbox_oficina = new ComboBox();
             btn_guardar2 = new Button();
-            btn_editar_2 = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(15, 71);
-            dataGridView1.Margin = new Padding(4, 4, 4, 4);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(970, 400);
-            dataGridView1.TabIndex = 0;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // lbl_empleados
             // 
             lbl_empleados.AutoSize = true;
             lbl_empleados.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_empleados.Location = new Point(15, 11);
+            lbl_empleados.Location = new Point(280, 55);
             lbl_empleados.Margin = new Padding(4, 0, 4, 0);
             lbl_empleados.Name = "lbl_empleados";
             lbl_empleados.Size = new Size(216, 54);
             lbl_empleados.TabIndex = 1;
             lbl_empleados.Text = "Empleados";
             // 
-            // btn_eliminar
-            // 
-            btn_eliminar.Location = new Point(296, 812);
-            btn_eliminar.Margin = new Padding(4, 4, 4, 4);
-            btn_eliminar.Name = "btn_eliminar";
-            btn_eliminar.Size = new Size(118, 36);
-            btn_eliminar.TabIndex = 4;
-            btn_eliminar.Text = "Eliminar";
-            btn_eliminar.UseVisualStyleBackColor = true;
-            btn_eliminar.Click += btn_eliminar_Click;
-            // 
             // btn_atras
             // 
-            btn_atras.Location = new Point(868, 845);
-            btn_atras.Margin = new Padding(4, 4, 4, 4);
+            btn_atras.Location = new Point(397, 773);
+            btn_atras.Margin = new Padding(4);
             btn_atras.Name = "btn_atras";
-            btn_atras.Size = new Size(118, 36);
+            btn_atras.Size = new Size(222, 36);
             btn_atras.TabIndex = 5;
             btn_atras.Text = "Atras";
             btn_atras.UseVisualStyleBackColor = true;
@@ -98,16 +71,16 @@
             // 
             // txt_documento
             // 
-            txt_documento.Location = new Point(15, 532);
-            txt_documento.Margin = new Padding(4, 4, 4, 4);
+            txt_documento.Location = new Point(164, 194);
+            txt_documento.Margin = new Padding(4);
             txt_documento.Name = "txt_documento";
-            txt_documento.Size = new Size(398, 31);
+            txt_documento.Size = new Size(455, 31);
             txt_documento.TabIndex = 6;
             // 
             // lbl_documento
             // 
             lbl_documento.AutoSize = true;
-            lbl_documento.Location = new Point(15, 504);
+            lbl_documento.Location = new Point(164, 166);
             lbl_documento.Margin = new Padding(4, 0, 4, 0);
             lbl_documento.Name = "lbl_documento";
             lbl_documento.Size = new Size(106, 25);
@@ -117,7 +90,7 @@
             // lbl_nombre
             // 
             lbl_nombre.AutoSize = true;
-            lbl_nombre.Location = new Point(15, 578);
+            lbl_nombre.Location = new Point(164, 240);
             lbl_nombre.Margin = new Padding(4, 0, 4, 0);
             lbl_nombre.Name = "lbl_nombre";
             lbl_nombre.Size = new Size(78, 25);
@@ -126,16 +99,16 @@
             // 
             // txt_nombre
             // 
-            txt_nombre.Location = new Point(15, 606);
-            txt_nombre.Margin = new Padding(4, 4, 4, 4);
+            txt_nombre.Location = new Point(164, 268);
+            txt_nombre.Margin = new Padding(4);
             txt_nombre.Name = "txt_nombre";
-            txt_nombre.Size = new Size(398, 31);
+            txt_nombre.Size = new Size(455, 31);
             txt_nombre.TabIndex = 8;
             // 
             // lbl_extension
             // 
             lbl_extension.AutoSize = true;
-            lbl_extension.Location = new Point(15, 725);
+            lbl_extension.Location = new Point(164, 387);
             lbl_extension.Margin = new Padding(4, 0, 4, 0);
             lbl_extension.Name = "lbl_extension";
             lbl_extension.Size = new Size(87, 25);
@@ -144,16 +117,16 @@
             // 
             // txt_extension
             // 
-            txt_extension.Location = new Point(15, 754);
-            txt_extension.Margin = new Padding(4, 4, 4, 4);
+            txt_extension.Location = new Point(164, 416);
+            txt_extension.Margin = new Padding(4);
             txt_extension.Name = "txt_extension";
-            txt_extension.Size = new Size(398, 31);
+            txt_extension.Size = new Size(455, 31);
             txt_extension.TabIndex = 12;
             // 
             // lbl_apellido
             // 
             lbl_apellido.AutoSize = true;
-            lbl_apellido.Location = new Point(15, 649);
+            lbl_apellido.Location = new Point(164, 311);
             lbl_apellido.Margin = new Padding(4, 0, 4, 0);
             lbl_apellido.Name = "lbl_apellido";
             lbl_apellido.Size = new Size(78, 25);
@@ -162,16 +135,16 @@
             // 
             // txt_apellido
             // 
-            txt_apellido.Location = new Point(15, 678);
-            txt_apellido.Margin = new Padding(4, 4, 4, 4);
+            txt_apellido.Location = new Point(164, 340);
+            txt_apellido.Margin = new Padding(4);
             txt_apellido.Name = "txt_apellido";
-            txt_apellido.Size = new Size(398, 31);
+            txt_apellido.Size = new Size(455, 31);
             txt_apellido.TabIndex = 10;
             // 
             // lbl_cargo
             // 
             lbl_cargo.AutoSize = true;
-            lbl_cargo.Location = new Point(529, 572);
+            lbl_cargo.Location = new Point(164, 563);
             lbl_cargo.Margin = new Padding(4, 0, 4, 0);
             lbl_cargo.Name = "lbl_cargo";
             lbl_cargo.Size = new Size(60, 25);
@@ -180,8 +153,8 @@
             // 
             // txt_cargo
             // 
-            txt_cargo.Location = new Point(529, 601);
-            txt_cargo.Margin = new Padding(4, 4, 4, 4);
+            txt_cargo.Location = new Point(164, 592);
+            txt_cargo.Margin = new Padding(4);
             txt_cargo.Name = "txt_cargo";
             txt_cargo.Size = new Size(455, 31);
             txt_cargo.TabIndex = 16;
@@ -189,7 +162,7 @@
             // lbl_email
             // 
             lbl_email.AutoSize = true;
-            lbl_email.Location = new Point(529, 504);
+            lbl_email.Location = new Point(164, 495);
             lbl_email.Margin = new Padding(4, 0, 4, 0);
             lbl_email.Name = "lbl_email";
             lbl_email.Size = new Size(54, 25);
@@ -198,8 +171,8 @@
             // 
             // txt_email
             // 
-            txt_email.Location = new Point(529, 532);
-            txt_email.Margin = new Padding(4, 4, 4, 4);
+            txt_email.Location = new Point(164, 523);
+            txt_email.Margin = new Padding(4);
             txt_email.Name = "txt_email";
             txt_email.Size = new Size(455, 31);
             txt_email.TabIndex = 14;
@@ -207,7 +180,7 @@
             // lbl_oficina
             // 
             lbl_oficina.AutoSize = true;
-            lbl_oficina.Location = new Point(529, 649);
+            lbl_oficina.Location = new Point(164, 640);
             lbl_oficina.Margin = new Padding(4, 0, 4, 0);
             lbl_oficina.Name = "lbl_oficina";
             lbl_oficina.Size = new Size(67, 25);
@@ -218,8 +191,8 @@
             // 
             Cbox_oficina.DropDownStyle = ComboBoxStyle.DropDownList;
             Cbox_oficina.FormattingEnabled = true;
-            Cbox_oficina.Location = new Point(529, 678);
-            Cbox_oficina.Margin = new Padding(4, 4, 4, 4);
+            Cbox_oficina.Location = new Point(164, 669);
+            Cbox_oficina.Margin = new Padding(4);
             Cbox_oficina.Name = "Cbox_oficina";
             Cbox_oficina.Size = new Size(455, 33);
             Cbox_oficina.TabIndex = 19;
@@ -227,32 +200,20 @@
             // 
             // btn_guardar2
             // 
-            btn_guardar2.Location = new Point(15, 812);
-            btn_guardar2.Margin = new Padding(4, 4, 4, 4);
+            btn_guardar2.Location = new Point(164, 773);
+            btn_guardar2.Margin = new Padding(4);
             btn_guardar2.Name = "btn_guardar2";
-            btn_guardar2.Size = new Size(118, 36);
+            btn_guardar2.Size = new Size(225, 36);
             btn_guardar2.TabIndex = 21;
             btn_guardar2.Text = "Guardar";
             btn_guardar2.UseVisualStyleBackColor = true;
             btn_guardar2.Click += btn_guardar2_Click;
             // 
-            // btn_editar_2
-            // 
-            btn_editar_2.Location = new Point(158, 812);
-            btn_editar_2.Margin = new Padding(4, 4, 4, 4);
-            btn_editar_2.Name = "btn_editar_2";
-            btn_editar_2.Size = new Size(118, 36);
-            btn_editar_2.TabIndex = 22;
-            btn_editar_2.Text = "Editar";
-            btn_editar_2.UseVisualStyleBackColor = true;
-            btn_editar_2.Click += btn_editar_2_Click;
-            // 
             // Entrada_empleados
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1000, 896);
-            Controls.Add(btn_editar_2);
+            ClientSize = new Size(815, 896);
             Controls.Add(btn_guardar2);
             Controls.Add(Cbox_oficina);
             Controls.Add(lbl_oficina);
@@ -269,23 +230,17 @@
             Controls.Add(lbl_documento);
             Controls.Add(txt_documento);
             Controls.Add(btn_atras);
-            Controls.Add(btn_eliminar);
             Controls.Add(lbl_empleados);
-            Controls.Add(dataGridView1);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "Entrada_empleados";
             Text = "Entrada_empleados";
             Load += Entrada_empleados_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private DataGridView dataGridView1;
         private Label lbl_empleados;
-        private Button btn_eliminar;
         private Button btn_atras;
         private TextBox txt_documento;
         private Label lbl_documento;
@@ -302,6 +257,5 @@
         private Label lbl_oficina;
         private ComboBox Cbox_oficina;
         private Button btn_guardar2;
-        private Button btn_editar_2;
     }
 }
