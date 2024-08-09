@@ -56,7 +56,7 @@ namespace Sistema_de_ventas_first
                 if (reader.Read())
                 {
                     MessageBox.Show("Login Exitoso", "Sistema");
-                    Menu_princial principal = new Menu_princial();
+                    Menu_principal principal = new Menu_principal();
                     principal.Show();
                     this.Hide();
                 }

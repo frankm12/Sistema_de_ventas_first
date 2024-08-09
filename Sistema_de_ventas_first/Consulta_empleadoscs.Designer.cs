@@ -31,7 +31,8 @@
             lbl_empleados = new Label();
             dataGridView1 = new DataGridView();
             btn_atras = new Button();
-            Empleados_Load = new Button();
+            bt_editar = new Button();
+            bt_eliminar = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -69,28 +70,40 @@
             btn_atras.UseVisualStyleBackColor = true;
             btn_atras.Click += btn_atras_Click;
             // 
-            // Empleados_Load
+            // bt_editar
             // 
-            Empleados_Load.Location = new Point(766, 469);
-            Empleados_Load.Name = "Empleados_Load";
-            Empleados_Load.Size = new Size(95, 36);
-            Empleados_Load.TabIndex = 3;
-            Empleados_Load.Text = "Cargar";
-            Empleados_Load.UseVisualStyleBackColor = true;
-            Empleados_Load.Click += Empleados_Load_Click;
+            bt_editar.Location = new Point(665, 469);
+            bt_editar.Name = "bt_editar";
+            bt_editar.Size = new Size(95, 36);
+            bt_editar.TabIndex = 4;
+            bt_editar.Text = "Editar";
+            bt_editar.UseVisualStyleBackColor = true;
+            bt_editar.Click += bt_editar_Click;
+            // 
+            // bt_eliminar
+            // 
+            bt_eliminar.Location = new Point(766, 469);
+            bt_eliminar.Name = "bt_eliminar";
+            bt_eliminar.Size = new Size(95, 36);
+            bt_eliminar.TabIndex = 5;
+            bt_eliminar.Text = "Eliminar";
+            bt_eliminar.UseVisualStyleBackColor = true;
+            bt_eliminar.Click += bt_eliminar_Click;
             // 
             // Consulta_empleadoscs
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1000, 524);
-            Controls.Add(Empleados_Load);
+            Controls.Add(bt_eliminar);
+            Controls.Add(bt_editar);
             Controls.Add(btn_atras);
             Controls.Add(dataGridView1);
             Controls.Add(lbl_empleados);
             Margin = new Padding(4);
             Name = "Consulta_empleadoscs";
             Text = "Consulta_empleadoscs";
+            Load += Consulta_empleadoscs_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -101,6 +114,7 @@
         private Label lbl_empleados;
         private DataGridView dataGridView1;
         private Button btn_atras;
-        private Button Empleados_Load;
+        private Button bt_editar;
+        private Button bt_eliminar;
     }
 }
