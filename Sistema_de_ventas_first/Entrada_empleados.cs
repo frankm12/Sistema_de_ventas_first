@@ -113,14 +113,14 @@ namespace Sistema_de_ventas_first
                     int oficina = Convert.ToInt32(Cbox_oficina.SelectedValue);
 
                     Metodo metodos = new Metodo();
-                    metodos.Insertar_empleados_boton(documento, nombre, apellido, extension, email, cargo, oficina);
+                    metodos.Insertar_empleados(documento, nombre, apellido, extension, email, cargo, oficina);
                     MessageBox.Show("Empleado agregado correctamente");
                     limpiarform();
                     consulta12.ActualizarDatagrid();
                         
                 }
 
-                }
+                
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error al agregar empleado: " + ex.Message);
@@ -138,7 +138,8 @@ namespace Sistema_de_ventas_first
                     string email = txt_email.Text;
                     string cargo = txt_cargo.Text;
                     int oficina = Convert.ToInt32(Cbox_oficina.SelectedValue);
-                    metodos.Editar_empleados_boton(documento, nombre, apellido, extension, email, cargo, oficina, Id_empleado);
+                    metodos.Editar_empleados(documento, nombre, apellido, extension, email, cargo, oficina, id_empleado);
+);
                     MessageBox.Show("Editado correctamente");
 
                     Editar = false;

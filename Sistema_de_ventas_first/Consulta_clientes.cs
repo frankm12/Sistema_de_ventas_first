@@ -46,17 +46,23 @@ namespace Sistema_de_ventas_first
 
         private void btn_cargar_Click(object sender, EventArgs e)
         {
-            SqlConnection conexion_a_base_de_datos = conexion_2.AbrirConexion();
-            SqlDataAdapter dataAdapter = new SqlDataAdapter("select * from clientes", conexion_a_base_de_datos);
-            DataTable dataTable = new DataTable();
-            dataAdapter.Fill(dataTable);
-            dataGridView1.DataSource = dataTable;
-            conexion_2.CerrarConexion();
+            ActualizarDatagrid();
         }
 
         private void Consulta_clientes_Load(object sender, EventArgs e)
         {
-            
+            ActualizarDatagrid();
+        }
+        public void ActualizarDatagrid()
+        {
+
+            SqlConnection conexion_a_base_de_datos = conexion_2.AbrirConexion();
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM clientes", conexion_a_base_de_datos);
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            dataGridView1.DataSource = dataTable;
+            conexion_2.CerrarConexion();
+
         }
     }
 }

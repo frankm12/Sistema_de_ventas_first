@@ -13,34 +13,33 @@ namespace Sistema_de_ventas_first
 {
     public partial class Entrada_clientes : Form
     {
-        private La_conect conexion_2 = new La_conect();
-        string Id_clientes = "";
-        bool Editar = false;
-        bool DesdeConsulta = false;
-        private Consulta_clientes consulta3 = new Consulta_clientes();
+        private La_conect conexion = new La_conect();
+        private string Id_clientes = "";
+        private bool Editar = false;
+        private bool DesdeConsulta = false;
 
         public Entrada_clientes()
         {
             InitializeComponent();
         }
 
-        public Entrada_clientes(string id_clientes, string empresa, string apellido, string nombre, string telefono, string direccion, string ciudad, string departamento, int codigoPostal, string pais, int empleadoAtiende, bool Desdeconsulta = false)
+        public Entrada_clientes(string id_clientes, string empresa, string apellido, string nombre, string telefono, string direccion, string ciudad, string departamento, int codigoPostal, string pais, int empleadoAtiende, bool desdeConsulta = false)
         {
             InitializeComponent();
             Editar = true;
             Id_clientes = id_clientes;
-            DesdeConsulta = Desdeconsulta;
+            DesdeConsulta = desdeConsulta;
 
             txt_empresa.Text = empresa;
             txt_nombre_del_cliente.Text = nombre;
             txt_apellido.Text = apellido;
-            txt_telefono.Text = telefono.ToString();
+            txt_telefono.Text = telefono;
             txt_direccion.Text = direccion;
             txt_ciudad.Text = ciudad;
             txt_departamento.Text = departamento;
             txt_codigo_postal.Text = codigoPostal.ToString();
             txt_pais.Text = pais;
-            Cbox_empleadoAtiende.Text = empleadoAtiende.ToString();
+            Cbox_empleadoAtiende.SelectedValue = empleadoAtiende; 
         }
 
         private void LimpiarForm2()
@@ -58,70 +57,66 @@ namespace Sistema_de_ventas_first
 
         private void LlenarComboBox2()
         {
-            SqlConnection conexion = conexion_2.AbrirConexion();
-            SqlCommand comando = new SqlCommand("select Id_empleado, nombre from empleados", conexion);
-            SqlDataReader reader = comando.ExecuteReader();
-            DataTable dataTable = new DataTable();
-            dataTable.Load(reader);
-            Cbox_empleadoAtiende.DataSource = dataTable;
-            Cbox_empleadoAtiende.DisplayMember = "nombre";
-            Cbox_empleadoAtiende.ValueMember = "Id_empleado";
+            SqlConnection conexion = null;
+            SqlCommand cmd = null;
+            SqlDataReader reader = null;
 
-            conexion_2.CerrarConexion();
+            try
+            {
+                conexion = this.conexion.AbrirConexion();
+                cmd = new SqlCommand("SELECT Id_empleado, nombre FROM empleados", conexion);
+                reader = cmd.ExecuteReader();
+                DataTable dataTable = new DataTable();
+                dataTable.Load(reader);
+                Cbox_empleadoAtiende.DataSource = dataTable;
+                Cbox_empleadoAtiende.DisplayMember = "nombre";
+                Cbox_empleadoAtiende.ValueMember = "Id_empleado";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al llenar el ComboBox: " + ex.Message);
+            }
+            finally
+            {
+                if (reader != null) reader.Close();
+                if (conexion != null) this.conexion.CerrarConexion();
+            }
         }
+
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            if (Editar == false)
+            try
             {
-                try
-                {
-                    string empresa = txt_empresa.Text;
-                    string nombre = txt_nombre_del_cliente.Text;
-                    string apellido = txt_apellido.Text;
-                    string telefono = txt_telefono.Text;
-                    string direccion = txt_direccion.Text;
-                    string ciudad = txt_ciudad.Text;
-                    string departamento = txt_departamento.Text;
-                    int codigoPostal = int.Parse(txt_codigo_postal.Text);
-                    string pais = txt_pais.Text;
-                    int empleadoAtiende = int.Parse(Cbox_empleadoAtiende.Text);
+                string empresa = txt_empresa.Text;
+                string nombre = txt_nombre_del_cliente.Text;
+                string apellido = txt_apellido.Text;
+                string telefono = txt_telefono.Text;
+                string direccion = txt_direccion.Text;
+                string ciudad = txt_ciudad.Text;
+                string departamento = txt_departamento.Text;
+                int codigoPostal = int.Parse(txt_codigo_postal.Text);
+                string pais = txt_pais.Text;
+                int empleadoAtiende = Convert.ToInt32(Cbox_empleadoAtiende.SelectedValue);
 
-                    Metodo metodo = new Metodo();
-                    metodo.Insertar_clientes_boton(empresa, nombre, apellido, telefono, direccion, ciudad, departamento, codigoPostal, pais, empleadoAtiende);
+                Metodo metodo = new Metodo();
+
+                if (!Editar)
+                {
+                    metodo.Insertar_clientes(empresa, apellido, nombre, telefono, direccion, ciudad, departamento, codigoPostal, pais, empleadoAtiende);
                     MessageBox.Show("Cliente agregado correctamente");
-                    LimpiarForm2();
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Error al agregar cliente: " + ex.Message);
-                }
-            }
-            else
-            {
-                try
-                {
-                    Metodo metodos = new Metodo();
-                    string empresa = txt_empresa.Text;
-                    string nombre = txt_nombre_del_cliente.Text;
-                    string apellido = txt_apellido.Text;
-                    string telefono = txt_telefono.Text;
-                    string direccion = txt_direccion.Text;
-                    string ciudad = txt_ciudad.Text;
-                    string departamento = txt_departamento.Text;
-                    int codigoPostal = int.Parse(txt_codigo_postal.Text);
-                    string pais = txt_pais.Text;
-                    int empleadoAtiende = int.Parse(Cbox_empleadoAtiende.Text);
-
-                    metodos.Editar_clientes_boton(empresa, nombre, apellido, telefono, direccion, ciudad, departamento, codigoPostal, pais, empleadoAtiende);
-                    MessageBox.Show("Editado correctamente");
-
+                    metodo.Editar_clientes(empresa, apellido, nombre, telefono, direccion, ciudad, departamento, codigoPostal, pais, empleadoAtiende);
+                    MessageBox.Show("Cliente editado correctamente");
                     Editar = false;
-                    LimpiarForm2();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al editar cliente" + ex.Message);
-                }
+
+                LimpiarForm2();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar cliente: " + ex.Message);
             }
         }
 
@@ -133,6 +128,11 @@ namespace Sistema_de_ventas_first
         private void btn_atras_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Cbox_empleadoAtiende_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Maneja el cambio de selección si es necesario
         }
     }
 }
