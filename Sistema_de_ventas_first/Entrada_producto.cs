@@ -45,7 +45,7 @@ namespace Sistema_de_ventas_first
             {
                 try
                 {
-                    string idProducto = text_idproducto.Text;
+                    string idProducto = text_Idproducto.Text;
                     string nombre = text_nombre.Text;
                     int idLinea = int.Parse(text_linea.Text);
                     int cantidad = int.Parse(text_cantidad.Text);
