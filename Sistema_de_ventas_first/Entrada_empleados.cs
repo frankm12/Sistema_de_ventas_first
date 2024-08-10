@@ -10,7 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Sistema_de_ventas_first;
 
 namespace Sistema_de_ventas_first
 {
@@ -114,12 +113,12 @@ namespace Sistema_de_ventas_first
                     int oficina = Convert.ToInt32(Cbox_oficina.SelectedValue);
 
                     Metodo metodos = new Metodo();
-                    metodos.insertar_empleados_boton(documento, nombre, apellido, extension, email, cargo, oficina);
+                    metodos.Insertar_empleados_boton(documento, nombre, apellido, extension, email, cargo, oficina);
                     MessageBox.Show("Empleado agregado correctamente");
                     limpiarform();
                     consulta12.ActualizarDatagrid();
-                        
-                        }
+
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error al agregar empleado: " + ex.Message);
@@ -148,6 +147,16 @@ namespace Sistema_de_ventas_first
                     MessageBox.Show("Error al editar empleado: " + ex.Message);
                 }
             }
+        }
+
+        private void lbl_cargo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_documento_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

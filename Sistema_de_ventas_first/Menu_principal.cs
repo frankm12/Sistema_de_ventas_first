@@ -25,7 +25,7 @@ namespace Sistema_de_ventas_first
         {
             Form consultaEmpleados = new Consulta_empleadoscs();
             consultaEmpleados.Show();
-           //// this.Hide();
+            //// this.Hide();
         }
 
         private void empleadosToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -60,7 +60,7 @@ namespace Sistema_de_ventas_first
         {
             Form consultaPagos = new Consulta_pagos();
             consultaPagos.Show();
-           // this.Hide();
+            // this.Hide();
         }
 
         private void entradaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -79,6 +79,18 @@ namespace Sistema_de_ventas_first
             {
                 Application.Exit();
             }
+        }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form consultasproducto = new Consulta_producto();
+            consultasproducto.Show();
+        }
+
+        private void productosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form entradaProducto = new Entrada_producto();
+            entradaProducto.Show();
         }
     }
 }

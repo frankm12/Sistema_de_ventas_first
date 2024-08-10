@@ -11,18 +11,13 @@ using System.Text.RegularExpressions;
 
 namespace Sistema_de_ventas_first
 {
-
     public class Metodo
     {
         private La_conect conexion = new La_conect();
-        SqlDataReader leer;
-        DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
-
 
         public void Insertar_empleados(int documento, string nombre, string apellido, string extension, string email, string cargo, int oficina)
         {
-            SqlConnection conexion_a_basededatos = new SqlConnection();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "AgregarEmpleado";
             comando.CommandType = CommandType.StoredProcedure;
@@ -32,32 +27,35 @@ namespace Sistema_de_ventas_first
             comando.Parameters.AddWithValue("@extension", extension);
             comando.Parameters.AddWithValue("@email", email);
             comando.Parameters.AddWithValue("@cargo", cargo);
-            comando.Parameters.AddWithValue("id_oficina", oficina);
+            comando.Parameters.AddWithValue("@id_oficina", oficina);
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();
+            conexion.CerrarConexion();
         }
-        public void insertar_empleados_boton(int documento, string nombre, string apellido, string extension, string email, string cargo, int oficina)
+
+        public void Insertar_empleados_boton(int documento, string nombre, string apellido, string extension, string email, string cargo, int oficina)
         {
-            Insertar_empleados(Convert.ToInt32(documento), nombre, apellido, extension, email, cargo, Convert.ToInt32(oficina));
+            Insertar_empleados(documento, nombre, apellido, extension, email, cargo, oficina);
         }
+
         public void Eliminar_empleados(int id)
         {
-            SqlConnection conexion_a_basededatos = new SqlConnection();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "EliminarEmpleado";
             comando.CommandType = CommandType.StoredProcedure;
-
             comando.Parameters.AddWithValue("@idpro", id);
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();
+            conexion.CerrarConexion();
         }
+
         public void Eliminar_empleados_boton(string id)
         {
             Eliminar_empleados(Convert.ToInt32(id));
         }
+
         public void Editar_empleados(int documento, string nombre, string apellido, string extension, string email, string cargo, int oficina, int id_empleado)
         {
-            SqlConnection conexion_a_basededatos = new SqlConnection();
             comando.Connection = conexion.AbrirConexion();
             comando.CommandText = "EditarEmpleado";
             comando.CommandType = CommandType.StoredProcedure;
@@ -67,14 +65,82 @@ namespace Sistema_de_ventas_first
             comando.Parameters.AddWithValue("@extension", extension);
             comando.Parameters.AddWithValue("@email", email);
             comando.Parameters.AddWithValue("@cargo", cargo);
-            comando.Parameters.AddWithValue("id_oficina", oficina);
+            comando.Parameters.AddWithValue("@id_oficina", oficina);
             comando.Parameters.AddWithValue("@Id_empleado", id_empleado);
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();
+            conexion.CerrarConexion();
         }
+
         public void Editar_empleados_boton(int documento, string nombre, string apellido, string extension, string email, string cargo, int oficina, string id_empleado)
         {
-            Editar_empleados(Convert.ToInt32(documento), nombre, apellido, extension, email, cargo, Convert.ToInt32(oficina), Convert.ToInt32(id_empleado));
+            Editar_empleados(documento, nombre, apellido, extension, email, cargo, oficina, Convert.ToInt32(id_empleado));
+        }
+
+        public void Insertar_producto(string idProducto, string nombre, int idLinea, int cantidad, decimal precio)
+        {
+            
+                try
+                {
+                    using (SqlConnection conexion_a_base_de_datos = conexion.AbrirConexion())
+                    {
+                        comando.Connection = conexion_a_base_de_datos;
+                        comando.CommandText = "AgregarProducto";
+                        comando.CommandType = CommandType.StoredProcedure;
+                        comando.Parameters.Clear();
+                        comando.Parameters.AddWithValue("@id_producto", idProducto);
+                        comando.Parameters.AddWithValue("@nombreProducto", nombre);
+                        comando.Parameters.AddWithValue("@id_lineaProducto", idLinea);
+                        comando.Parameters.AddWithValue("@cantidad", cantidad);
+                        comando.Parameters.AddWithValue("@precioVenta", precio);
+                        comando.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al agregar producto: " + ex.Message);
+                }
+        }
+
+            public void Insertar_producto_boton(string idProducto, string nombre, int idLinea, int cantidad, decimal precio)
+        {
+            Insertar_producto(idProducto, nombre, idLinea, cantidad, precio);
+        }
+
+        public void Editar_producto(string idProducto, string nombre, int idLinea, int cantidad, decimal precio)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "EditarProducto"; 
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@id_producto", idProducto);
+            comando.Parameters.AddWithValue("@nombreProducto", nombre);
+            comando.Parameters.AddWithValue("@id_lineaProducto", idLinea);
+            comando.Parameters.AddWithValue("@cantidad", cantidad);
+            comando.Parameters.AddWithValue("@precioVenta", precio);
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            conexion.CerrarConexion();
+        }
+
+        public void Editar_producto_boton(string idProducto, string nombre, int idLinea, int cantidad, decimal precio)
+        {
+            Editar_producto(idProducto, nombre, idLinea, cantidad, precio);
+        }
+
+        public void Eliminar_producto(string idProducto)
+        {
+            comando.Connection = conexion.AbrirConexion();
+            comando.CommandText = "EliminarProducto";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@id_producto", idProducto);
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            conexion.CerrarConexion();
+        }
+
+        public void Eliminar_producto_boton(string idProducto)
+        {
+            Eliminar_producto(idProducto);
         }
 
         public void Insertar_clientes(string empresa, string apellido, string nombre, int telefono, string direccion, string ciudad, string departamento, int codigoPostal, string pais, int empleadoAtiende)
