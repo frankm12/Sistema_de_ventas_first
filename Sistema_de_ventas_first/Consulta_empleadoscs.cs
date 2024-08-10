@@ -33,7 +33,7 @@ namespace Sistema_de_ventas_first
             dataAdapter.Fill(dataTable);
             dataGridView1.DataSource = dataTable;
             conexion_2.CerrarConexion();
-
+       
         }
         private void Empleados_Load_Click(object sender, EventArgs e)
         {

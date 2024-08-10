@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             lbl_entrada_clientes = new Label();
-            dataGridView1 = new DataGridView();
             txt_empresa = new TextBox();
             lbl_empresa = new Label();
             lbl_nombre = new Label();
@@ -55,7 +54,6 @@
             btn_eliminar = new Button();
             btn_atras = new Button();
             btn_habilitar = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // lbl_entrada_clientes
@@ -67,17 +65,6 @@
             lbl_entrada_clientes.Size = new Size(111, 37);
             lbl_entrada_clientes.TabIndex = 0;
             lbl_entrada_clientes.Text = "Clientes";
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(10, 44);
-            dataGridView1.Margin = new Padding(3, 2, 3, 2);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(747, 141);
-            dataGridView1.TabIndex = 1;
             // 
             // txt_empresa
             // 
@@ -291,6 +278,7 @@
             btn_atras.TabIndex = 30;
             btn_atras.Text = "Atras";
             btn_atras.UseVisualStyleBackColor = true;
+            btn_atras.Click += btn_atras_Click;
             // 
             // btn_habilitar
             // 
@@ -332,13 +320,11 @@
             Controls.Add(txt_nombre_del_cliente);
             Controls.Add(lbl_empresa);
             Controls.Add(txt_empresa);
-            Controls.Add(dataGridView1);
             Controls.Add(lbl_entrada_clientes);
             Margin = new Padding(3, 2, 3, 2);
             Name = "Entrada_clientes";
             Text = "Entrada_clientes";
             Load += Entrada_clientes_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -346,7 +332,6 @@
         #endregion
 
         private Label lbl_entrada_clientes;
-        private DataGridView dataGridView1;
         private TextBox txt_empresa;
         private Label lbl_empresa;
         private Label lbl_nombre;

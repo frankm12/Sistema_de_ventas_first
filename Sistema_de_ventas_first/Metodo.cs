@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 
 
@@ -14,7 +15,7 @@ namespace Sistema_de_ventas_first
 
     public class Metodo
     {
-        private La_conect conexion = new La_conect();
+        private La_conect conexion_2 = new La_conect();
         SqlDataReader leer;
         DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
@@ -23,7 +24,7 @@ namespace Sistema_de_ventas_first
         public void Insertar_empleados(int documento, string nombre, string apellido, string extension, string email, string cargo, int oficina)
         {
             SqlConnection conexion_a_basededatos = new SqlConnection();
-            comando.Connection = conexion.AbrirConexion();
+            comando.Connection = conexion_2.AbrirConexion();
             comando.CommandText = "AgregarEmpleado";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@documento", documento);
@@ -43,7 +44,7 @@ namespace Sistema_de_ventas_first
         public void Eliminar_empleados(int id)
         {
             SqlConnection conexion_a_basededatos = new SqlConnection();
-            comando.Connection = conexion.AbrirConexion();
+            comando.Connection = conexion_2.AbrirConexion();
             comando.CommandText = "EliminarEmpleado";
             comando.CommandType = CommandType.StoredProcedure;
 
@@ -58,7 +59,7 @@ namespace Sistema_de_ventas_first
         public void Editar_empleados(int documento, string nombre, string apellido, string extension, string email, string cargo, int oficina, int id_empleado)
         {
             SqlConnection conexion_a_basededatos = new SqlConnection();
-            comando.Connection = conexion.AbrirConexion();
+            comando.Connection = conexion_2.AbrirConexion();
             comando.CommandText = "EditarEmpleado";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@documento", documento);
@@ -77,10 +78,10 @@ namespace Sistema_de_ventas_first
             Editar_empleados(Convert.ToInt32(documento), nombre, apellido, extension, email, cargo, Convert.ToInt32(oficina), Convert.ToInt32(id_empleado));
         }
 
-        public void Insertar_clientes(string empresa, string apellido, string nombre, int telefono, string direccion, string ciudad, string departamento, int codigoPostal, string pais, int empleadoAtiende)
+        public void Insertar_clientes(string empresa, string apellido, string nombre, string telefono, string direccion, string ciudad, string departamento, int codigoPostal, string pais, int empleadoAtiende)
         {
             SqlConnection conexion_a_base_de_datos = new SqlConnection();
-            comando.Connection = conexion.AbrirConexion();
+            comando.Connection = conexion_2.AbrirConexion();
             comando.CommandText = "Insertarclientes";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@empresa", empresa);
@@ -97,15 +98,15 @@ namespace Sistema_de_ventas_first
             comando.Parameters.Clear();
         }
 
-        public void Insertar_clientes_boton(string empresa, string apellido, string nombre, int telefono, string direccion, string ciudad, string departamento, int codigoPostal, string pais, int empleadoAtiende)
+        public void Insertar_clientes_boton(string empresa, string apellido, string nombre, string telefono, string direccion, string ciudad, string departamento, int codigoPostal, string pais, int empleadoAtiende)
         {
-            Insertar_clientes(empresa, apellido, nombre, Convert.ToInt32(telefono), direccion, ciudad, departamento, codigoPostal, pais, empleadoAtiende);
+            Insertar_clientes(empresa, apellido, nombre, telefono, direccion, ciudad, departamento, Convert.ToInt32(codigoPostal), pais, empleadoAtiende);
         }
 
         public void Eliminar_clientes(int Id)
         {
             SqlConnection conexion_a_base_de_datos = new SqlConnection();
-            comando.Connection = conexion.AbrirConexion();
+            comando.Connection = conexion_2.AbrirConexion();
             comando.CommandText = "Eliminarclientes";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@Id_cliente", Id);
@@ -116,6 +117,30 @@ namespace Sistema_de_ventas_first
         public void Eliminar_clientes_boton(int Id)
         {
             Eliminar_clientes(Convert.ToInt32(Id));
+        }
+
+        public void Editar_clientes(string empresa, string apellido, string nombre, string telefono, string direccion, string ciudad, string departamento, int codigoPostal, string pais, int empleadoAtiende)
+        {
+            SqlConnection conexion_a_base_de_datos = new SqlConnection();
+            comando.Connection = conexion_2.AbrirConexion();
+            comando.CommandText = "Editarclientes";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@empresa", empresa);
+            comando.Parameters.AddWithValue("@apellido", apellido);
+            comando.Parameters.AddWithValue("@nombre", nombre);
+            comando.Parameters.AddWithValue("@telefono", telefono);
+            comando.Parameters.AddWithValue("@direccion", direccion);
+            comando.Parameters.AddWithValue("@ciudad", ciudad);
+            comando.Parameters.AddWithValue("@departamento", departamento);
+            comando.Parameters.AddWithValue("@codigoPostal", codigoPostal);
+            comando.Parameters.AddWithValue("@pais", pais);
+            comando.Parameters.AddWithValue("@empleadoAtiende", empleadoAtiende);
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+        }
+        public void Editar_clientes_boton(string empresa, string apellido, string nombre, string telefono, string direccion, string ciudad, string departamento, int codigoPostal, string pais, int empleadoAtiende)
+        {
+            Editar_clientes(empresa, apellido, nombre, telefono, direccion, ciudad, departamento, Convert.ToInt32(codigoPostal), pais, Convert.ToInt32(empleadoAtiende));
         }
     }
 }

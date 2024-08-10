@@ -119,7 +119,7 @@ namespace Sistema_de_ventas_first
                     limpiarform();
                     consulta12.ActualizarDatagrid();
                         
-                        }
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error al agregar empleado: " + ex.Message);

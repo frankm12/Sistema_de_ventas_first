@@ -13,7 +13,7 @@ namespace Sistema_de_ventas_first
 {
     public partial class Consulta_clientes : Form
     {
-        private La_conect conexion_3 = new La_conect();
+        private La_conect conexion_2 = new La_conect();
 
         public Consulta_clientes()
         {
@@ -46,17 +46,17 @@ namespace Sistema_de_ventas_first
 
         private void btn_cargar_Click(object sender, EventArgs e)
         {
-            SqlConnection conexion_a_base_de_datos = conexion_3.AbrirConexion();
-            SqlDataAdapter dataAdapter = new SqlDataAdapter("Select * from clientes", conexion_a_base_de_datos);
+            SqlConnection conexion_a_base_de_datos = conexion_2.AbrirConexion();
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("select * from clientes", conexion_a_base_de_datos);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
             dataGridView1.DataSource = dataTable;
-            conexion_3.CerrarConexion();
+            conexion_2.CerrarConexion();
         }
 
         private void Consulta_clientes_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
