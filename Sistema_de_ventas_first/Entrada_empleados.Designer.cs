@@ -76,6 +76,7 @@
             txt_documento.Name = "txt_documento";
             txt_documento.Size = new Size(455, 23);
             txt_documento.TabIndex = 6;
+            txt_documento.TextChanged += txt_documento_TextChanged;
             // 
             // lbl_documento
             // 
@@ -150,6 +151,7 @@
             lbl_cargo.Size = new Size(39, 15);
             lbl_cargo.TabIndex = 17;
             lbl_cargo.Text = "Cargo";
+            lbl_cargo.Click += lbl_cargo_Click;
             // 
             // txt_cargo
             // 
