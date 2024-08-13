@@ -34,7 +34,7 @@ namespace Sistema_de_ventas_first
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 DataGridViewRow row = dataGridView1.SelectedRows[0];
-                string id_clientes = null;
+                int id_clientes = int.Parse(row.Cells["id_cliente"].Value.ToString());
                 string empresa = row.Cells["empresa"].Value.ToString();
                 string apellido = row.Cells["apellido"].Value.ToString();
                 string nombre = row.Cells["nombre"].Value.ToString();

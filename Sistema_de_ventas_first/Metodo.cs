@@ -246,7 +246,7 @@ namespace Sistema_de_ventas_first
             }
         }
 
-        public void Editar_clientes(string empresa, string apellido, string nombre, string telefono, string direccion, string ciudad, string departamento, int codigoPostal, string pais, int empleadoAtiende)
+        public void Editar_clientes(int id_Cliente,string empresa, string apellido, string nombre, string telefono, string direccion, string ciudad, string departamento, int codigoPostal, string pais, int empleadoAtiende)
         {
             SqlConnection conexion_a_basededatos = conexion.AbrirConexion();
             try
@@ -255,6 +255,7 @@ namespace Sistema_de_ventas_first
                 comando.CommandText = "Editarclientes";
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@id_cliente", id_Cliente);
                 comando.Parameters.AddWithValue("@empresa", empresa);
                 comando.Parameters.AddWithValue("@apellido", apellido);
                 comando.Parameters.AddWithValue("@nombre", nombre);
@@ -276,5 +277,10 @@ namespace Sistema_de_ventas_first
                 conexion.CerrarConexion();
             }
         }
+        public void Editar_clientes_boton(int id_Cliente, string empresa, string apellido, string nombre, string telefono, string direccion, string ciudad, string departamento, int codigoPostal, string pais, int empleadoAtiende)
+        {
+            Editar_clientes(Convert.ToInt32(id_Cliente),empresa, apellido, nombre, telefono, direccion, ciudad, departamento, Convert.ToInt32(codigoPostal), pais, Convert.ToInt32(empleadoAtiende));
+        }
+
     }
 }

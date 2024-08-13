@@ -100,6 +100,8 @@ namespace Sistema_de_ventas_first
                         MessageBox.Show("Error al editar producto: " + ex.Message);
                     }
                 }
+
+                this.Dispose();
         }
     }
     

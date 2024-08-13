@@ -14,7 +14,7 @@ namespace Sistema_de_ventas_first
     public partial class Entrada_clientes : Form
     {
         private La_conect conexion = new La_conect();
-        private string Id_clientes = "";
+        public int Id_clientes;
         private bool Editar = false;
         bool DesdeConsulta = false;
 
@@ -23,11 +23,11 @@ namespace Sistema_de_ventas_first
             InitializeComponent();
         }
 
-        public Entrada_clientes(string id_clientes, string empresa, string apellido, string nombre, string telefono, string direccion, string ciudad, string departamento, int codigoPostal, string pais, int empleadoAtiende, bool desdeconsulta = false)
+        public Entrada_clientes(int id_Clientes, string empresa, string apellido, string nombre, string telefono, string direccion, string ciudad, string departamento, int codigoPostal, string pais, int empleadoAtiende, bool desdeconsulta = false)
         {
             InitializeComponent();
             Editar = true;
-            Id_clientes = id_clientes;
+            Id_clientes = id_Clientes;
             DesdeConsulta = desdeconsulta;
 
             txt_empresa.Text = empresa;
@@ -87,7 +87,7 @@ namespace Sistema_de_ventas_first
         {
             try
             {
-                string id_cliente = null;
+                int id_cliente = Id_clientes;
                 string empresa = txt_empresa.Text;
                 string nombre = txt_nombre_del_cliente.Text;
                 string apellido = txt_apellido.Text;
@@ -108,7 +108,7 @@ namespace Sistema_de_ventas_first
                 }
                 else
                 {
-                    metodo.Editar_clientes(empresa, apellido, nombre, telefono, direccion, ciudad, departamento, codigoPostal, pais, empleadoAtiende);
+                    metodo.Editar_clientes_boton(id_cliente, empresa, apellido, nombre, telefono, direccion, ciudad, departamento, codigoPostal, pais, empleadoAtiende);
                     MessageBox.Show("Cliente editado correctamente");
                     Editar = false;
                 }
