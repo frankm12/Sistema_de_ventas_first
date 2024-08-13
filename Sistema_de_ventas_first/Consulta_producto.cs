@@ -44,14 +44,15 @@ namespace Sistema_de_ventas_first
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
+
                 DataGridViewRow row = dataGridView1.SelectedRows[0];
-                string idProducto = row.Cells["id_producto"].Value.ToString();
+                int idProducto = int.Parse(row.Cells["id_producto"].Value.ToString());
                 string nombre = row.Cells["nombreProducto"].Value.ToString();
-                int idLinea = int.Parse(row.Cells["id_lineaProducto"].Value.ToString());
-                int cantidad = int.Parse(row.Cells["cantidad"].Value.ToString());
+                string idLinea = row.Cells["id_lineaProducto"].Value.ToString();
+                string cantidad = (row.Cells["cantidad"].Value.ToString());
                 decimal precio = decimal.Parse(row.Cells["precioVenta"].Value.ToString());
 
-                Entrada_producto entradaProductoForm = new Entrada_producto(idProducto, nombre, idLinea, cantidad, precio, true);
+                Entrada_producto entradaProductoForm = new Entrada_producto(idProducto, nombre, idLinea, cantidad, precio);
                 entradaProductoForm.Show();
             }
             else

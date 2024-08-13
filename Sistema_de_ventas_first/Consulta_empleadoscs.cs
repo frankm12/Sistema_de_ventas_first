@@ -42,9 +42,6 @@ namespace Sistema_de_ventas_first
 
         private void btn_atras_Click(object sender, EventArgs e)
         {
-            Menu_principal principal = new Menu_principal();
-            principal.Show();
-
            this.Dispose();
         }
 
@@ -54,7 +51,7 @@ namespace Sistema_de_ventas_first
             {
                 DataGridViewRow row = dataGridView1.SelectedRows[0];
                 string idEmpleado = row.Cells["Id_empleado"].Value.ToString();
-                int documento = int.Parse(row.Cells["documento"].Value.ToString());
+                string documento = row.Cells["documento"].Value.ToString();
                 string nombre = row.Cells["nombre"].Value.ToString();
                 string apellido = row.Cells["apellido"].Value.ToString();
                 string extension = row.Cells["extension"].Value.ToString();
@@ -64,7 +61,7 @@ namespace Sistema_de_ventas_first
 
                 Entrada_empleados entradaEmpleadosForm = new Entrada_empleados(idEmpleado, documento, nombre, apellido, extension, email, cargo, idOficina, true);
                 entradaEmpleadosForm.Show();
-               // this.Dispose();
+
             }
             else
             {

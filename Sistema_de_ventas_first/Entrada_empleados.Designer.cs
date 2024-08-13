@@ -51,19 +51,19 @@
             // 
             lbl_empleados.AutoSize = true;
             lbl_empleados.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_empleados.Location = new Point(280, 55);
-            lbl_empleados.Margin = new Padding(4, 0, 4, 0);
+            lbl_empleados.Location = new Point(19, 14);
+            lbl_empleados.Margin = new Padding(5, 0, 5, 0);
             lbl_empleados.Name = "lbl_empleados";
-            lbl_empleados.Size = new Size(148, 37);
+            lbl_empleados.Size = new Size(183, 46);
             lbl_empleados.TabIndex = 1;
             lbl_empleados.Text = "Empleados";
             // 
             // btn_atras
             // 
-            btn_atras.Location = new Point(397, 773);
-            btn_atras.Margin = new Padding(4);
+            btn_atras.Location = new Point(28, 660);
+            btn_atras.Margin = new Padding(5, 5, 5, 5);
             btn_atras.Name = "btn_atras";
-            btn_atras.Size = new Size(222, 36);
+            btn_atras.Size = new Size(519, 48);
             btn_atras.TabIndex = 5;
             btn_atras.Text = "Atras";
             btn_atras.UseVisualStyleBackColor = true;
@@ -71,121 +71,122 @@
             // 
             // txt_documento
             // 
-            txt_documento.Location = new Point(166, 114);
-            txt_documento.Margin = new Padding(4);
+            txt_documento.Location = new Point(28, 88);
+            txt_documento.Margin = new Padding(5, 5, 5, 5);
             txt_documento.Name = "txt_documento";
-            txt_documento.Size = new Size(455, 23);
+            txt_documento.Size = new Size(519, 27);
             txt_documento.TabIndex = 6;
             txt_documento.TextChanged += txt_documento_TextChanged;
             // 
             // lbl_documento
             // 
             lbl_documento.AutoSize = true;
-            lbl_documento.Location = new Point(166, 95);
-            lbl_documento.Margin = new Padding(4, 0, 4, 0);
+            lbl_documento.Location = new Point(28, 63);
+            lbl_documento.Margin = new Padding(5, 0, 5, 0);
             lbl_documento.Name = "lbl_documento";
-            lbl_documento.Size = new Size(70, 15);
+            lbl_documento.Size = new Size(87, 20);
             lbl_documento.TabIndex = 7;
             lbl_documento.Text = "Documento";
             // 
             // lbl_nombre
             // 
             lbl_nombre.AutoSize = true;
-            lbl_nombre.Location = new Point(166, 152);
-            lbl_nombre.Margin = new Padding(4, 0, 4, 0);
+            lbl_nombre.Location = new Point(28, 139);
+            lbl_nombre.Margin = new Padding(5, 0, 5, 0);
             lbl_nombre.Name = "lbl_nombre";
-            lbl_nombre.Size = new Size(51, 15);
+            lbl_nombre.Size = new Size(64, 20);
             lbl_nombre.TabIndex = 9;
             lbl_nombre.Text = "Nombre";
             // 
             // txt_nombre
             // 
-            txt_nombre.Location = new Point(166, 171);
-            txt_nombre.Margin = new Padding(4);
+            txt_nombre.Location = new Point(28, 164);
+            txt_nombre.Margin = new Padding(5, 5, 5, 5);
             txt_nombre.Name = "txt_nombre";
-            txt_nombre.Size = new Size(455, 23);
+            txt_nombre.Size = new Size(519, 27);
             txt_nombre.TabIndex = 8;
             // 
             // lbl_extension
             // 
             lbl_extension.AutoSize = true;
-            lbl_extension.Location = new Point(166, 265);
-            lbl_extension.Margin = new Padding(4, 0, 4, 0);
+            lbl_extension.Location = new Point(28, 289);
+            lbl_extension.Margin = new Padding(5, 0, 5, 0);
             lbl_extension.Name = "lbl_extension";
-            lbl_extension.Size = new Size(58, 15);
+            lbl_extension.Size = new Size(72, 20);
             lbl_extension.TabIndex = 13;
             lbl_extension.Text = "Extension";
             // 
             // txt_extension
             // 
-            txt_extension.Location = new Point(166, 284);
-            txt_extension.Margin = new Padding(4);
+            txt_extension.Location = new Point(28, 315);
+            txt_extension.Margin = new Padding(5, 5, 5, 5);
             txt_extension.Name = "txt_extension";
-            txt_extension.Size = new Size(455, 23);
+            txt_extension.Size = new Size(519, 27);
             txt_extension.TabIndex = 12;
             // 
             // lbl_apellido
             // 
             lbl_apellido.AutoSize = true;
-            lbl_apellido.Location = new Point(166, 208);
-            lbl_apellido.Margin = new Padding(4, 0, 4, 0);
+            lbl_apellido.Location = new Point(28, 213);
+            lbl_apellido.Margin = new Padding(5, 0, 5, 0);
             lbl_apellido.Name = "lbl_apellido";
-            lbl_apellido.Size = new Size(51, 15);
+            lbl_apellido.Size = new Size(66, 20);
             lbl_apellido.TabIndex = 11;
             lbl_apellido.Text = "Apellido";
             // 
             // txt_apellido
             // 
-            txt_apellido.Location = new Point(166, 227);
-            txt_apellido.Margin = new Padding(4);
+            txt_apellido.Location = new Point(28, 239);
+            txt_apellido.Margin = new Padding(5, 5, 5, 5);
             txt_apellido.Name = "txt_apellido";
-            txt_apellido.Size = new Size(455, 23);
+            txt_apellido.Size = new Size(519, 27);
             txt_apellido.TabIndex = 10;
             // 
             // lbl_cargo
             // 
             lbl_cargo.AutoSize = true;
-            lbl_cargo.Location = new Point(166, 385);
-            lbl_cargo.Margin = new Padding(4, 0, 4, 0);
+            lbl_cargo.Location = new Point(28, 433);
+            lbl_cargo.Margin = new Padding(5, 0, 5, 0);
             lbl_cargo.Name = "lbl_cargo";
-            lbl_cargo.Size = new Size(39, 15);
+            lbl_cargo.Size = new Size(49, 20);
             lbl_cargo.TabIndex = 17;
             lbl_cargo.Text = "Cargo";
             lbl_cargo.Click += lbl_cargo_Click;
             // 
             // txt_cargo
             // 
-            txt_cargo.Location = new Point(166, 404);
-            txt_cargo.Margin = new Padding(4);
+            txt_cargo.Location = new Point(28, 459);
+            txt_cargo.Margin = new Padding(5, 5, 5, 5);
             txt_cargo.Name = "txt_cargo";
-            txt_cargo.Size = new Size(320, 23);
+            txt_cargo.Size = new Size(365, 27);
             txt_cargo.TabIndex = 16;
+            txt_cargo.TextChanged += txt_cargo_TextChanged;
             // 
             // lbl_email
             // 
             lbl_email.AutoSize = true;
-            lbl_email.Location = new Point(169, 324);
-            lbl_email.Margin = new Padding(4, 0, 4, 0);
+            lbl_email.Location = new Point(31, 359);
+            lbl_email.Margin = new Padding(5, 0, 5, 0);
             lbl_email.Name = "lbl_email";
-            lbl_email.Size = new Size(36, 15);
+            lbl_email.Size = new Size(46, 20);
             lbl_email.TabIndex = 15;
             lbl_email.Text = "Email";
             // 
             // txt_email
             // 
-            txt_email.Location = new Point(166, 343);
-            txt_email.Margin = new Padding(4);
+            txt_email.Location = new Point(28, 384);
+            txt_email.Margin = new Padding(5, 5, 5, 5);
             txt_email.Name = "txt_email";
-            txt_email.Size = new Size(320, 23);
+            txt_email.Size = new Size(365, 27);
             txt_email.TabIndex = 14;
             // 
             // lbl_oficina
             // 
             lbl_oficina.AutoSize = true;
-            lbl_oficina.Location = new Point(166, 443);
-            lbl_oficina.Margin = new Padding(4, 0, 4, 0);
+            lbl_oficina.Location = new Point(31, 508);
+            lbl_oficina.Margin = new Padding(5, 0, 5, 0);
             lbl_oficina.Name = "lbl_oficina";
-            lbl_oficina.Size = new Size(45, 15);
+            lbl_oficina.Size = new Size(56, 20);
             lbl_oficina.TabIndex = 18;
             lbl_oficina.Text = "Oficina";
             // 
@@ -193,19 +194,19 @@
             // 
             Cbox_oficina.DropDownStyle = ComboBoxStyle.DropDownList;
             Cbox_oficina.FormattingEnabled = true;
-            Cbox_oficina.Location = new Point(166, 462);
-            Cbox_oficina.Margin = new Padding(4);
+            Cbox_oficina.Location = new Point(31, 533);
+            Cbox_oficina.Margin = new Padding(5, 5, 5, 5);
             Cbox_oficina.Name = "Cbox_oficina";
-            Cbox_oficina.Size = new Size(320, 23);
+            Cbox_oficina.Size = new Size(365, 28);
             Cbox_oficina.TabIndex = 19;
             Cbox_oficina.SelectedIndexChanged += Cbox_oficina_SelectedIndexChanged;
             // 
             // btn_guardar2
             // 
-            btn_guardar2.Location = new Point(164, 773);
-            btn_guardar2.Margin = new Padding(4);
+            btn_guardar2.Location = new Point(28, 592);
+            btn_guardar2.Margin = new Padding(5, 5, 5, 5);
             btn_guardar2.Name = "btn_guardar2";
-            btn_guardar2.Size = new Size(225, 36);
+            btn_guardar2.Size = new Size(519, 48);
             btn_guardar2.TabIndex = 21;
             btn_guardar2.Text = "Guardar";
             btn_guardar2.UseVisualStyleBackColor = true;
@@ -213,9 +214,9 @@
             // 
             // Entrada_empleados
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(815, 509);
+            ClientSize = new Size(574, 738);
             Controls.Add(btn_guardar2);
             Controls.Add(Cbox_oficina);
             Controls.Add(lbl_oficina);
@@ -233,7 +234,7 @@
             Controls.Add(txt_documento);
             Controls.Add(btn_atras);
             Controls.Add(lbl_empleados);
-            Margin = new Padding(4);
+            Margin = new Padding(5, 5, 5, 5);
             Name = "Entrada_empleados";
             Text = "Entrada_empleados";
             Load += Entrada_empleados_Load;

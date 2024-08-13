@@ -17,7 +17,7 @@ namespace Sistema_de_ventas_first
         private La_conect conexion = new La_conect();
         private SqlCommand comando = new SqlCommand();
 
-        public void Insertar_empleados(int documento, string nombre, string apellido, string extension, string email, string cargo, int oficina)
+        public void Insertar_empleados(string documento, string nombre, string apellido, string extension, string email, string cargo, int oficina)
         {
             SqlConnection conexion_a_basededatos = conexion.AbrirConexion();
             try
@@ -44,6 +44,10 @@ namespace Sistema_de_ventas_first
                 conexion.CerrarConexion();
             }
         }
+        public void Insertar_empleados_boton(string documento, string nombre, string apellido, string extension, string email, string cargo, int oficina)
+        {
+            Insertar_empleados(documento, nombre, apellido, extension, email, cargo, oficina);
+        }
 
         public void Eliminar_empleados(int id)
         {
@@ -66,8 +70,12 @@ namespace Sistema_de_ventas_first
                 conexion.CerrarConexion();
             }
         }
+        public void Eliminar_empleados_boton(string id)
+        {
+            Eliminar_empleados(Convert.ToInt32(id));
+        }
 
-        public void Editar_empleados(int documento, string nombre, string apellido, string extension, string email, string cargo, int oficina, int id_empleado)
+        public void Editar_empleados(string documento, string nombre, string apellido, string extension, string email, string cargo, int oficina, int id_empleado)
         {
             SqlConnection conexion_a_basededatos = conexion.AbrirConexion();
             try
@@ -95,8 +103,12 @@ namespace Sistema_de_ventas_first
                 conexion.CerrarConexion();
             }
         }
+        public void Editar_empleados_boton(string documento, string nombre, string apellido, string extension, string email, string cargo, int oficina, string id_empleado)
+        {
+            Editar_empleados(documento, nombre, apellido, extension, email, cargo, oficina, Convert.ToInt32(id_empleado));
+        }
 
-        public void Insertar_producto(string idProducto, string nombre, int idLinea, int cantidad, decimal precio)
+        public void Insertar_producto(string nombre, string idLinea, int cantidad, decimal precio)
         {
             SqlConnection conexion_a_basededatos = conexion.AbrirConexion();
             try
@@ -105,7 +117,6 @@ namespace Sistema_de_ventas_first
                 comando.CommandText = "AgregarProducto";
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.Parameters.Clear();
-                comando.Parameters.AddWithValue("@id_producto", idProducto);
                 comando.Parameters.AddWithValue("@nombreProducto", nombre);
                 comando.Parameters.AddWithValue("@id_lineaProducto", idLinea);
                 comando.Parameters.AddWithValue("@cantidad", cantidad);
@@ -121,8 +132,12 @@ namespace Sistema_de_ventas_first
                 conexion.CerrarConexion();
             }
         }
+        public void Insertar_producto_boton(string nombre, string idLinea, int cantidad, decimal precio)
+        {
+            Insertar_producto(nombre, idLinea, cantidad, precio);
+        }
 
-        public void Editar_producto(string idProducto, string nombre, int idLinea, int cantidad, decimal precio)
+        public void Editar_producto(int idProducto, string nombre, int idLinea, int cantidad, decimal precio)
         {
             SqlConnection conexion_a_basededatos = conexion.AbrirConexion();
             try
@@ -147,6 +162,10 @@ namespace Sistema_de_ventas_first
                 conexion.CerrarConexion();
             }
         }
+        public void Editar_producto_boton(int idProducto, string nombre, int idLinea, int cantidad, decimal precio)
+        {
+            Editar_producto(Convert.ToInt32(idProducto), nombre, idLinea, cantidad, precio);
+        }
 
         public void Eliminar_producto(string idProducto)
         {
@@ -168,6 +187,10 @@ namespace Sistema_de_ventas_first
             {
                 conexion.CerrarConexion();
             }
+        }
+        public void Eliminar_producto_boton(string idProducto)
+        {
+            Eliminar_producto(idProducto);
         }
 
         public void Insertar_clientes(string empresa, string apellido, string nombre, string telefono, string direccion, string ciudad, string departamento, int codigoPostal, string pais, int empleadoAtiende)

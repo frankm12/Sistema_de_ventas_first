@@ -25,6 +25,7 @@ namespace Sistema_de_ventas_first
         private void btingresar_Click(object sender, EventArgs e)
         {
             Ingresar();
+
         }
 
         private void textBox_KeyDown(object sender, KeyEventArgs e)
@@ -74,7 +75,9 @@ namespace Sistema_de_ventas_first
             finally
             {
                 conexion.CerrarConexion();
+
             }
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

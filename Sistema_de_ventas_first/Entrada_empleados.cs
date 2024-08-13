@@ -15,7 +15,10 @@ namespace Sistema_de_ventas_first
 {
     public partial class Entrada_empleados : Form
     {
+        // aqui hacemos las herencias de la clase conexion dandole una variable llamada conexion_2
         private La_conect conexion_2 = new La_conect();
+        // aqui ponemos una variable vacia tipo string antes de inicializar el codigo con el fin de
+        // almacenar datos en el futuro y poder convertirlos
         string Id_empleado = "";
         bool Editar = false;
         bool DesdeConsulta = false;
@@ -25,7 +28,7 @@ namespace Sistema_de_ventas_first
             InitializeComponent();
         }
 
-        public Entrada_empleados(string idEmpleado, int documento, string nombre, string apellido, string extension, string email, string cargo, int idOficina, bool desdeConsulta = false)
+        public Entrada_empleados(string idEmpleado, string documento, string nombre, string apellido, string extension, string email, string cargo, int idOficina, bool desdeConsulta = false)
         {
             InitializeComponent();
             Editar = true;
@@ -53,28 +56,12 @@ namespace Sistema_de_ventas_first
 
         private void Cbox_oficina_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Puedes agregar lógica adicional aquí si es necesario
+
         }
 
         private void btn_atras_Click(object sender, EventArgs e)
         {
-
-            this.Close();
-
-            /*
-            if (DesdeConsulta)
-            {
-                // Regresa al formulario de consulta
-                Consulta_empleadoscs consultaForm = new Consulta_empleadoscs();
-                consultaForm.Show();
-            }
-            else
-            {
-                // Regresa al menú principal
-                Menu_principal principalForm = new Menu_principal();
-                principalForm.Show();
-            }
-            this.Hide();*/
+            this.Dispose();
         }
 
         private void LlenarComboBox()
@@ -104,7 +91,7 @@ namespace Sistema_de_ventas_first
             {
                 try
                 {
-                    int documento = int.Parse(txt_documento.Text);
+                    string documento = txt_documento.Text;
                     string nombre = txt_nombre.Text;
                     string apellido = txt_apellido.Text;
                     string extension = txt_extension.Text;
@@ -117,10 +104,10 @@ namespace Sistema_de_ventas_first
                     MessageBox.Show("Empleado agregado correctamente");
                     limpiarform();
                     consulta12.ActualizarDatagrid();
-                        
+
                 }
 
-                
+
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error al agregar empleado: " + ex.Message);
@@ -131,15 +118,15 @@ namespace Sistema_de_ventas_first
                 try
                 {
                     Metodo metodos = new Metodo();
-                    int documento = int.Parse(txt_documento.Text);
+                    string documento = txt_documento.Text;
                     string nombre = txt_nombre.Text;
                     string apellido = txt_apellido.Text;
                     string extension = txt_extension.Text;
                     string email = txt_email.Text;
                     string cargo = txt_cargo.Text;
                     int oficina = Convert.ToInt32(Cbox_oficina.SelectedValue);
-                    metodos.Editar_empleados(documento, nombre, apellido, extension, email, cargo, oficina, id_empleado);
-);
+                    metodos.Editar_empleados_boton(documento, nombre, apellido, extension, email, cargo, oficina, Id_empleado);
+
                     MessageBox.Show("Editado correctamente");
 
                     Editar = false;
@@ -158,6 +145,11 @@ namespace Sistema_de_ventas_first
         }
 
         private void txt_documento_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_cargo_TextChanged(object sender, EventArgs e)
         {
 
         }
