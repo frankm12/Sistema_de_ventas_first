@@ -24,38 +24,37 @@ namespace Sistema_de_ventas_first
         private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form consultaEmpleados = new Consulta_empleadoscs();
-            consultaEmpleados.Show();
-            //// this.Hide();
+            consultaEmpleados.ShowDialog();
         }
 
         private void empleadosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Entrada_empleados principalForm = new Entrada_empleados();
-            principalForm.Show();
+            principalForm.ShowDialog();
         }
 
         private void clientesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Form entradaClientes = new Entrada_clientes();
-            entradaClientes.Show();
+            entradaClientes.ShowDialog();
         }
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form consultaClientes = new Consulta_clientes();
-            consultaClientes.Show();
+            consultaClientes.ShowDialog();
         }
 
         private void pagosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Form entradaPagos = new Entrada_pagos();
-            entradaPagos.Show();
+            entradaPagos.ShowDialog();
         }
 
         private void pagosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form consultaPagos = new Consulta_pagos();
-            consultaPagos.Show();
+            consultaPagos.ShowDialog();
         }
 
         private void entradaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -80,13 +79,13 @@ namespace Sistema_de_ventas_first
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form consultasproducto = new Consulta_producto();
-            consultasproducto.Show();
+            consultasproducto.ShowDialog();
         }
 
         private void productosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Form entradaProducto = new Entrada_producto();
-            entradaProducto.Show();
+            entradaProducto.ShowDialog();
         }
     }
 }

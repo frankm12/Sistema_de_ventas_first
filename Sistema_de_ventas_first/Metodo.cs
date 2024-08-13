@@ -137,7 +137,7 @@ namespace Sistema_de_ventas_first
             Insertar_producto(nombre, idLinea, cantidad, precio);
         }
 
-        public void Editar_producto(int idProducto, string nombre, int idLinea, int cantidad, decimal precio)
+        public void Editar_producto(int idProducto, string nombre, string idLinea, int cantidad, decimal precio)
         {
             SqlConnection conexion_a_basededatos = conexion.AbrirConexion();
             try
@@ -162,7 +162,7 @@ namespace Sistema_de_ventas_first
                 conexion.CerrarConexion();
             }
         }
-        public void Editar_producto_boton(int idProducto, string nombre, int idLinea, int cantidad, decimal precio)
+        public void Editar_producto_boton(int idProducto, string nombre, string idLinea, int cantidad, decimal precio)
         {
             Editar_producto(Convert.ToInt32(idProducto), nombre, idLinea, cantidad, precio);
         }
