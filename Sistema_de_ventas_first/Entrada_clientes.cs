@@ -16,19 +16,19 @@ namespace Sistema_de_ventas_first
         private La_conect conexion = new La_conect();
         private string Id_clientes = "";
         private bool Editar = false;
-        private bool DesdeConsulta = false;
+        bool DesdeConsulta = false;
 
         public Entrada_clientes()
         {
             InitializeComponent();
         }
 
-        public Entrada_clientes(string id_clientes, string empresa, string apellido, string nombre, string telefono, string direccion, string ciudad, string departamento, int codigoPostal, string pais, int empleadoAtiende, bool desdeConsulta = false)
+        public Entrada_clientes(string id_clientes, string empresa, string apellido, string nombre, string telefono, string direccion, string ciudad, string departamento, int codigoPostal, string pais, int empleadoAtiende, bool desdeconsulta = false)
         {
             InitializeComponent();
             Editar = true;
             Id_clientes = id_clientes;
-            DesdeConsulta = desdeConsulta;
+            DesdeConsulta = desdeconsulta;
 
             txt_empresa.Text = empresa;
             txt_nombre_del_cliente.Text = nombre;
@@ -87,6 +87,7 @@ namespace Sistema_de_ventas_first
         {
             try
             {
+                string id_cliente = null;
                 string empresa = txt_empresa.Text;
                 string nombre = txt_nombre_del_cliente.Text;
                 string apellido = txt_apellido.Text;

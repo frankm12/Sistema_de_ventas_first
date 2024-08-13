@@ -37,7 +37,7 @@ namespace Sistema_de_ventas_first
 
         public void limpiarform()
         {
-            txt_nombre.Clear();
+            txt_nombre_bueno.Clear();
             text_linea.Clear();
             text_cantidad.Clear();
             text_precio.Clear();
@@ -57,7 +57,7 @@ namespace Sistema_de_ventas_first
                 try
                 {
                     
-                    string nombre = txt_nombre.Text;
+                    string nombre = txt_nombre_bueno.Text;
                     string idLinea = text_linea.Text;
                     int cantidad = int.Parse(text_cantidad.Text);
                     decimal precio = decimal.Parse(text_precio.Text);
@@ -79,7 +79,7 @@ namespace Sistema_de_ventas_first
                 try
                 {
                     int idProducto = Id_producto;
-                    string nombre = txt_nombre.Text;
+                    string nombre = txt_nombre_bueno.Text;
                     int idLinea = int.Parse(text_linea.Text);
                     int cantidad = int.Parse(text_cantidad.Text);
                     decimal precio = decimal.Parse(text_precio.Text);
