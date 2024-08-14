@@ -64,7 +64,7 @@ namespace Sistema_de_ventas_first
             try
             {
                 conexion = this.conexion.AbrirConexion();
-                cmd = new SqlCommand("SELECT Id_empleado, nombre FROM empleados", conexion);
+                cmd = new SqlCommand("select Id_empleado, nombre from empleados", conexion);
                 reader = cmd.ExecuteReader();
                 DataTable dataTable = new DataTable();
                 dataTable.Load(reader);

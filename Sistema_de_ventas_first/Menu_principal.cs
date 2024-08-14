@@ -5,7 +5,7 @@ namespace Sistema_de_ventas_first
 {
     public partial class Menu_principal : Form
     {
-        
+
         public Menu_principal()
         {
             InitializeComponent();
@@ -86,6 +86,18 @@ namespace Sistema_de_ventas_first
         {
             Form entradaProducto = new Entrada_producto();
             entradaProducto.ShowDialog();
+        }
+
+        private void ordenesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form ConsultaOrdenes = new Consulta_Ordenes();
+            ConsultaOrdenes.ShowDialog();
+        }
+
+        private void ordenesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form EntradaOrdenes = new Entrada_Ordenes();
+            EntradaOrdenes.ShowDialog();
         }
     }
 }

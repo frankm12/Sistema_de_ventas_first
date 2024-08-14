@@ -372,5 +372,98 @@ namespace Sistema_de_ventas_first
             Editar_pagos(Convert.ToInt32(id_pago),Convert.ToInt32(id_cliente), numeroFactura, fechaPago, totalPago);
         }
 
+        public void Insertar_ordenes(DateTime fechaRecibido, DateTime fechaLimiteEntrega, DateTime fechaEntrega, string estado, string observacion, int id_cliente)
+        {
+            SqlConnection conexion_a_base_de_datos = conexion.AbrirConexion();
+            try
+            {
+                comando.Connection = conexion_a_base_de_datos;
+                comando.CommandText = "Insertarordenes";
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@fechaRecibido", fechaRecibido);
+                comando.Parameters.AddWithValue("@fechaLimiteEntrega", fechaLimiteEntrega);
+                comando.Parameters.AddWithValue("@fechaEntrega", fechaEntrega);
+                comando.Parameters.AddWithValue("@estado", estado);
+                comando.Parameters.AddWithValue("observacion", observacion);
+                comando.Parameters.AddWithValue("@id_cliente", id_cliente);
+                comando.ExecuteNonQuery();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al insertar orden: " + ex.Message);
+            }
+
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+        public void Insertar_ordenes_boton(DateTime fechaRecibido, DateTime fechaLimiteEntrega, DateTime fechaEntrega, string estado, string observacion, int id_cliente)
+        {
+            Insertar_ordenes(fechaRecibido, fechaLimiteEntrega, fechaEntrega, estado, observacion, id_cliente);
+        }
+
+        public void Eliminar_ordenes(int id)
+        {
+            SqlConnection conexion_a_basededatos = conexion.AbrirConexion();
+            try
+            {
+                comando.Connection = conexion_a_basededatos;
+                comando.CommandText = "Eliminarordenes";
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@id_orden", id);
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar orden: " + ex.Message);
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+
+        public void Eliminar_ordenes_boton(int id)
+        {
+            Eliminar_ordenes(Convert.ToInt32(id));
+        }
+
+        public void Editar_ordenes(int id_orden, DateTime fechaRecibido, DateTime fechaLimiteEntrega, DateTime fechaEntrega, string estado, string observacion, int id_cliente)
+        {
+            SqlConnection conexion_a_basededatos = conexion.AbrirConexion();
+            try
+            {
+                comando.Connection = conexion_a_basededatos;
+                comando.CommandText = "Editarordenes";
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@id_orden", id_orden);
+                comando.Parameters.AddWithValue("@fechaRecibido", fechaRecibido);
+                comando.Parameters.AddWithValue("@fechaLimiteEntrega", fechaLimiteEntrega);
+                comando.Parameters.AddWithValue("@fechaEntrega", fechaEntrega);
+                comando.Parameters.AddWithValue("@estado", estado);
+                comando.Parameters.AddWithValue("observacion", observacion);
+                comando.Parameters.AddWithValue("@id_cliente", id_cliente);
+                comando.ExecuteNonQuery();
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al editar pago: " + ex.Message);
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+
+        public void Editar_ordenes_boton(int id_orden, DateTime fechaRecibido, DateTime fechaLimiteEntrega, DateTime fechaEntrega, string estado, string observacion, int id_cliente)
+        {
+            Editar_ordenes(Convert.ToInt32(id_orden), fechaRecibido, fechaLimiteEntrega, fechaEntrega, estado, observacion, Convert.ToInt32(id_cliente));
+        }
     }
 }
