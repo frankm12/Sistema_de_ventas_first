@@ -277,10 +277,99 @@ namespace Sistema_de_ventas_first
                 conexion.CerrarConexion();
             }
         }
+
         public void Editar_clientes_boton(int id_Cliente, string empresa, string apellido, string nombre, string telefono, string direccion, string ciudad, string departamento, int codigoPostal, string pais, int empleadoAtiende)
         {
             Editar_clientes(Convert.ToInt32(id_Cliente),empresa, apellido, nombre, telefono, direccion, ciudad, departamento, Convert.ToInt32(codigoPostal), pais, Convert.ToInt32(empleadoAtiende));
         }
 
+        public void Insertar_pago(int id_cliente, string numeroFactura, DateTime fechaPago, decimal totalPago)
+        {
+            SqlConnection conexion_a_base_de_datos = conexion.AbrirConexion();
+            try
+            {
+                comando.Connection = conexion_a_base_de_datos;
+                comando.CommandText = "Insertarpagos";
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@id_cliente", id_cliente);
+                comando.Parameters.AddWithValue("@numeroFactura", numeroFactura);
+                comando.Parameters.AddWithValue("@fechaPago", fechaPago);
+                comando.Parameters.AddWithValue("@totalPago", totalPago);
+                comando.ExecuteNonQuery();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al insertar pago: " + ex.Message);
+            }
+
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+        public void Insertar_pagos_boton(int id_cliente, string numeroFactura, DateTime fechaPago, decimal totalPago)
+        {
+            Insertar_pago(id_cliente, numeroFactura, fechaPago, totalPago);
+        }
+
+        public void Eliminar_pagos(int id)
+        {
+            SqlConnection conexion_a_basededatos = conexion.AbrirConexion();
+            try
+            {
+                comando.Connection = conexion_a_basededatos;
+                comando.CommandText = "Eliminarpagos";
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@id_pago", id);
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar pago: " + ex.Message);
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+
+        public void Eliminar_pagos_boton(int id)
+        {
+            Eliminar_pagos(Convert.ToInt32(id));
+        }
+
+        public void Editar_pagos(int id_pago, int id_cliente, string numeroFactura, DateTime fechaPago, decimal totalPago)
+        {
+            SqlConnection conexion_a_basededatos = conexion.AbrirConexion();
+            try
+            {
+                comando.Connection = conexion_a_basededatos;
+                comando.CommandText = "Editarpagos";
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@id_pago", id_pago);
+                comando.Parameters.AddWithValue("@id_cliente", id_cliente);
+                comando.Parameters.AddWithValue("@numeroFactura", numeroFactura);
+                comando.Parameters.AddWithValue("@fechaPago", fechaPago);
+                comando.Parameters.AddWithValue("@totalPago", totalPago);
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al editar pago: " + ex.Message);
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+
+        public void Editar_pagos_boton(int id_pago, int id_cliente, string numeroFactura, DateTime fechaPago, decimal totalPago)
+        {
+            Editar_pagos(Convert.ToInt32(id_pago), id_cliente, numeroFactura, fechaPago, totalPago);
+        }
     }
 }

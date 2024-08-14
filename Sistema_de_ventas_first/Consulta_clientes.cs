@@ -24,9 +24,7 @@ namespace Sistema_de_ventas_first
 
         private void btnguardar_Click(object sender, EventArgs e)
         {
-            Entrada_clientes entrada = new Entrada_clientes();
-            entrada.Show();
-            this.Close();
+            
         }
 
         private void btneditar_Click(object sender, EventArgs e)
@@ -78,7 +76,7 @@ namespace Sistema_de_ventas_first
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al eliminar empleado: " + ex.Message);
+                    MessageBox.Show("Error al eliminar cliente: " + ex.Message);
                 }
 
             }
