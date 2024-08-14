@@ -369,7 +369,8 @@ namespace Sistema_de_ventas_first
 
         public void Editar_pagos_boton(int id_pago, int id_cliente, string numeroFactura, DateTime fechaPago, decimal totalPago)
         {
-            Editar_pagos(Convert.ToInt32(id_pago), id_cliente, numeroFactura, fechaPago, totalPago);
+            Editar_pagos(Convert.ToInt32(id_pago),Convert.ToInt32(id_cliente), numeroFactura, fechaPago, totalPago);
         }
+
     }
 }

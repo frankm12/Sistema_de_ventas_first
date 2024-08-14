@@ -24,7 +24,7 @@ namespace Sistema_de_ventas_first
 
         private void btnguardar_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btneditar_Click(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace Sistema_de_ventas_first
                 string pais = row.Cells["pais"].Value.ToString();
                 int empleadoAtiende = int.Parse(row.Cells["empleadoAtiende"].Value.ToString());
 
-                Entrada_clientes entradaEmpleadosForm = new Entrada_clientes(id_clientes,empresa, apellido, nombre, telefono, direccion, ciudad, departamento, codigoPostal, pais, empleadoAtiende, true);
+                Entrada_clientes entradaEmpleadosForm = new Entrada_clientes(id_clientes, empresa, apellido, nombre, telefono, direccion, ciudad, departamento, codigoPostal, pais, empleadoAtiende, true);
                 entradaEmpleadosForm.Show();
 
             }
@@ -56,7 +56,7 @@ namespace Sistema_de_ventas_first
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
-            
+
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 try
@@ -104,6 +104,11 @@ namespace Sistema_de_ventas_first
             dataAdapter.Fill(dataTable);
             dataGridView1.DataSource = dataTable;
             conexion_2.CerrarConexion();
+
+        }
+
+        private void btn_atras_Click(object sender, EventArgs e)
+        {
 
         }
     }
