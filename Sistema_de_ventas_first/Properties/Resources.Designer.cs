@@ -63,26 +63,6 @@ namespace Sistema_de_ventas_first.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_user_48 {
-            get {
-                object obj = ResourceManager.GetObject("icons8-user-48", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap jjci663q {
-            get {
-                object obj = ResourceManager.GetObject("jjci663q", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap SV_1 {
             get {
                 object obj = ResourceManager.GetObject("SV 1", resourceCulture);

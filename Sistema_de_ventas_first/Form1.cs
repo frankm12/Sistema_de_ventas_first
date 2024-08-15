@@ -12,8 +12,8 @@ namespace Sistema_de_ventas_first
 
         public Form1()
         {
-           
             InitializeComponent();
+            // Asociar el evento KeyDown de los TextBox con el manejador
             textBox1.KeyDown += new KeyEventHandler(textBox_KeyDown);
             textBox2.KeyDown += new KeyEventHandler(textBox_KeyDown);
         }
@@ -25,27 +25,16 @@ namespace Sistema_de_ventas_first
         private void btingresar_Click(object sender, EventArgs e)
         {
             Ingresar();
+
         }
 
         private void textBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                e.SuppressKeyPress = true; // Evita el sonido de la tecla Enter
-
-                System.Windows.Forms.TextBox currentTextBox = sender as System.Windows.Forms.TextBox;
-
-                // Mueve el enfoque o realiza el login
-                if (currentTextBox == textBox1)
-                {
-                    // Mueve el enfoque a textBox2 (contraseña)
-                    textBox2.Focus();
-                }
-                else if (currentTextBox == textBox2)
-                {
-                    // Ejecuta el login
-                    Ingresar();
-                }
+                // Evitar el sonido de la tecla Enter en el TextBox
+                e.SuppressKeyPress = true;
+                Ingresar();
             }
         }
 
@@ -86,7 +75,9 @@ namespace Sistema_de_ventas_first
             finally
             {
                 conexion.CerrarConexion();
+
             }
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -95,11 +86,6 @@ namespace Sistema_de_ventas_first
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
         }
     }
 }

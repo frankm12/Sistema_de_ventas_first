@@ -46,7 +46,7 @@ namespace Sistema_de_ventas_first
         }
         public void Insertar_empleados_boton(string documento, string nombre, string apellido, string extension, string email, string cargo, int oficina)
         {
-            Insertar_empleados(documento, nombre, apellido, extension, email, cargo, oficina);
+            Insertar_empleados(documento, nombre, apellido, extension, email, cargo, Convert.ToInt32(oficina));
         }
 
         public void Eliminar_empleados(int id)
