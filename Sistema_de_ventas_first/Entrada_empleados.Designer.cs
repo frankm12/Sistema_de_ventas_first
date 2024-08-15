@@ -30,7 +30,6 @@
         {
             lbl_empleados = new Label();
             btn_atras = new Button();
-            txt_documento = new TextBox();
             lbl_documento = new Label();
             lbl_nombre = new Label();
             txt_nombre = new TextBox();
@@ -45,6 +44,8 @@
             lbl_oficina = new Label();
             Cbox_oficina = new ComboBox();
             btn_guardar2 = new Button();
+            btn_habilitar = new Button();
+            maskedTextBox1 = new MaskedTextBox();
             SuspendLayout();
             // 
             // lbl_empleados
@@ -55,28 +56,19 @@
             lbl_empleados.Margin = new Padding(5, 0, 5, 0);
             lbl_empleados.Name = "lbl_empleados";
             lbl_empleados.Size = new Size(183, 46);
-            lbl_empleados.TabIndex = 1;
+            lbl_empleados.TabIndex = 0;
             lbl_empleados.Text = "Empleados";
             // 
             // btn_atras
             // 
-            btn_atras.Location = new Point(28, 660);
-            btn_atras.Margin = new Padding(5, 5, 5, 5);
+            btn_atras.Location = new Point(31, 629);
+            btn_atras.Margin = new Padding(5);
             btn_atras.Name = "btn_atras";
             btn_atras.Size = new Size(519, 48);
-            btn_atras.TabIndex = 5;
+            btn_atras.TabIndex = 9;
             btn_atras.Text = "Atras";
             btn_atras.UseVisualStyleBackColor = true;
             btn_atras.Click += btn_atras_Click;
-            // 
-            // txt_documento
-            // 
-            txt_documento.Location = new Point(28, 88);
-            txt_documento.Margin = new Padding(5, 5, 5, 5);
-            txt_documento.Name = "txt_documento";
-            txt_documento.Size = new Size(519, 27);
-            txt_documento.TabIndex = 6;
-            txt_documento.TextChanged += txt_documento_TextChanged;
             // 
             // lbl_documento
             // 
@@ -85,7 +77,7 @@
             lbl_documento.Margin = new Padding(5, 0, 5, 0);
             lbl_documento.Name = "lbl_documento";
             lbl_documento.Size = new Size(87, 20);
-            lbl_documento.TabIndex = 7;
+            lbl_documento.TabIndex = 0;
             lbl_documento.Text = "Documento";
             // 
             // lbl_nombre
@@ -95,16 +87,16 @@
             lbl_nombre.Margin = new Padding(5, 0, 5, 0);
             lbl_nombre.Name = "lbl_nombre";
             lbl_nombre.Size = new Size(64, 20);
-            lbl_nombre.TabIndex = 9;
+            lbl_nombre.TabIndex = 0;
             lbl_nombre.Text = "Nombre";
             // 
             // txt_nombre
             // 
             txt_nombre.Location = new Point(28, 164);
-            txt_nombre.Margin = new Padding(5, 5, 5, 5);
+            txt_nombre.Margin = new Padding(5);
             txt_nombre.Name = "txt_nombre";
             txt_nombre.Size = new Size(519, 27);
-            txt_nombre.TabIndex = 8;
+            txt_nombre.TabIndex = 2;
             // 
             // lbl_extension
             // 
@@ -113,16 +105,16 @@
             lbl_extension.Margin = new Padding(5, 0, 5, 0);
             lbl_extension.Name = "lbl_extension";
             lbl_extension.Size = new Size(72, 20);
-            lbl_extension.TabIndex = 13;
+            lbl_extension.TabIndex = 0;
             lbl_extension.Text = "Extension";
             // 
             // txt_extension
             // 
             txt_extension.Location = new Point(28, 315);
-            txt_extension.Margin = new Padding(5, 5, 5, 5);
+            txt_extension.Margin = new Padding(5);
             txt_extension.Name = "txt_extension";
             txt_extension.Size = new Size(519, 27);
-            txt_extension.TabIndex = 12;
+            txt_extension.TabIndex = 4;
             // 
             // lbl_apellido
             // 
@@ -131,16 +123,16 @@
             lbl_apellido.Margin = new Padding(5, 0, 5, 0);
             lbl_apellido.Name = "lbl_apellido";
             lbl_apellido.Size = new Size(66, 20);
-            lbl_apellido.TabIndex = 11;
+            lbl_apellido.TabIndex = 0;
             lbl_apellido.Text = "Apellido";
             // 
             // txt_apellido
             // 
             txt_apellido.Location = new Point(28, 239);
-            txt_apellido.Margin = new Padding(5, 5, 5, 5);
+            txt_apellido.Margin = new Padding(5);
             txt_apellido.Name = "txt_apellido";
             txt_apellido.Size = new Size(519, 27);
-            txt_apellido.TabIndex = 10;
+            txt_apellido.TabIndex = 3;
             // 
             // lbl_cargo
             // 
@@ -149,17 +141,17 @@
             lbl_cargo.Margin = new Padding(5, 0, 5, 0);
             lbl_cargo.Name = "lbl_cargo";
             lbl_cargo.Size = new Size(49, 20);
-            lbl_cargo.TabIndex = 17;
+            lbl_cargo.TabIndex = 0;
             lbl_cargo.Text = "Cargo";
             lbl_cargo.Click += lbl_cargo_Click;
             // 
             // txt_cargo
             // 
             txt_cargo.Location = new Point(28, 459);
-            txt_cargo.Margin = new Padding(5, 5, 5, 5);
+            txt_cargo.Margin = new Padding(5);
             txt_cargo.Name = "txt_cargo";
             txt_cargo.Size = new Size(365, 27);
-            txt_cargo.TabIndex = 16;
+            txt_cargo.TabIndex = 6;
             txt_cargo.TextChanged += txt_cargo_TextChanged;
             // 
             // lbl_email
@@ -169,54 +161,75 @@
             lbl_email.Margin = new Padding(5, 0, 5, 0);
             lbl_email.Name = "lbl_email";
             lbl_email.Size = new Size(46, 20);
-            lbl_email.TabIndex = 15;
+            lbl_email.TabIndex = 0;
             lbl_email.Text = "Email";
             // 
             // txt_email
             // 
             txt_email.Location = new Point(28, 384);
-            txt_email.Margin = new Padding(5, 5, 5, 5);
+            txt_email.Margin = new Padding(5);
             txt_email.Name = "txt_email";
             txt_email.Size = new Size(365, 27);
-            txt_email.TabIndex = 14;
+            txt_email.TabIndex = 5;
             // 
             // lbl_oficina
             // 
             lbl_oficina.AutoSize = true;
-            lbl_oficina.Location = new Point(31, 508);
+            lbl_oficina.Location = new Point(31, 502);
             lbl_oficina.Margin = new Padding(5, 0, 5, 0);
             lbl_oficina.Name = "lbl_oficina";
             lbl_oficina.Size = new Size(56, 20);
-            lbl_oficina.TabIndex = 18;
+            lbl_oficina.TabIndex = 0;
             lbl_oficina.Text = "Oficina";
             // 
             // Cbox_oficina
             // 
             Cbox_oficina.DropDownStyle = ComboBoxStyle.DropDownList;
             Cbox_oficina.FormattingEnabled = true;
-            Cbox_oficina.Location = new Point(31, 533);
-            Cbox_oficina.Margin = new Padding(5, 5, 5, 5);
+            Cbox_oficina.Location = new Point(31, 527);
+            Cbox_oficina.Margin = new Padding(5);
             Cbox_oficina.Name = "Cbox_oficina";
             Cbox_oficina.Size = new Size(365, 28);
-            Cbox_oficina.TabIndex = 19;
+            Cbox_oficina.TabIndex = 7;
             Cbox_oficina.SelectedIndexChanged += Cbox_oficina_SelectedIndexChanged;
             // 
             // btn_guardar2
             // 
-            btn_guardar2.Location = new Point(28, 592);
-            btn_guardar2.Margin = new Padding(5, 5, 5, 5);
+            btn_guardar2.Location = new Point(31, 571);
+            btn_guardar2.Margin = new Padding(5);
             btn_guardar2.Name = "btn_guardar2";
             btn_guardar2.Size = new Size(519, 48);
-            btn_guardar2.TabIndex = 21;
+            btn_guardar2.TabIndex = 8;
             btn_guardar2.Text = "Guardar";
             btn_guardar2.UseVisualStyleBackColor = true;
             btn_guardar2.Click += btn_guardar2_Click;
+            // 
+            // btn_habilitar
+            // 
+            btn_habilitar.Location = new Point(31, 687);
+            btn_habilitar.Margin = new Padding(5);
+            btn_habilitar.Name = "btn_habilitar";
+            btn_habilitar.Size = new Size(519, 48);
+            btn_habilitar.TabIndex = 10;
+            btn_habilitar.Text = "Habilitar";
+            btn_habilitar.UseVisualStyleBackColor = true;
+            btn_habilitar.Click += btn_habilitar_Click;
+            // 
+            // maskedTextBox1
+            // 
+            maskedTextBox1.Location = new Point(28, 88);
+            maskedTextBox1.Mask = "000-000000-0";
+            maskedTextBox1.Name = "maskedTextBox1";
+            maskedTextBox1.Size = new Size(519, 27);
+            maskedTextBox1.TabIndex = 1;
             // 
             // Entrada_empleados
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(574, 738);
+            ClientSize = new Size(574, 748);
+            Controls.Add(maskedTextBox1);
+            Controls.Add(btn_habilitar);
             Controls.Add(btn_guardar2);
             Controls.Add(Cbox_oficina);
             Controls.Add(lbl_oficina);
@@ -231,11 +244,11 @@
             Controls.Add(lbl_nombre);
             Controls.Add(txt_nombre);
             Controls.Add(lbl_documento);
-            Controls.Add(txt_documento);
             Controls.Add(btn_atras);
             Controls.Add(lbl_empleados);
-            Margin = new Padding(5, 5, 5, 5);
+            Margin = new Padding(5);
             Name = "Entrada_empleados";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Entrada_empleados";
             Load += Entrada_empleados_Load;
             ResumeLayout(false);
@@ -245,7 +258,6 @@
         #endregion
         private Label lbl_empleados;
         private Button btn_atras;
-        private TextBox txt_documento;
         private Label lbl_documento;
         private Label lbl_nombre;
         private TextBox txt_nombre;
@@ -260,5 +272,7 @@
         private Label lbl_oficina;
         private ComboBox Cbox_oficina;
         private Button btn_guardar2;
+        private Button btn_habilitar;
+        private MaskedTextBox maskedTextBox1;
     }
 }

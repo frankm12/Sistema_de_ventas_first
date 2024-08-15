@@ -39,7 +39,7 @@ namespace Sistema_de_ventas_first
             txt_departamento.Text = departamento;
             txt_codigo_postal.Text = codigoPostal.ToString();
             txt_pais.Text = pais;
-            Cbox_empleadoAtiende.SelectedValue = empleadoAtiende; 
+            Cbox_empleadoAtiende.SelectedValue = empleadoAtiende;
         }
 
         private void LimpiarForm2()
@@ -124,6 +124,7 @@ namespace Sistema_de_ventas_first
         private void Entrada_clientes_Load(object sender, EventArgs e)
         {
             LlenarComboBox2();
+            DeshabilitarTodo();
         }
 
         private void btn_atras_Click(object sender, EventArgs e)
@@ -134,6 +135,39 @@ namespace Sistema_de_ventas_first
         private void Cbox_empleadoAtiende_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Maneja el cambio de selección si es necesario
+        }
+        public void DeshabilitarTodo()
+        {
+
+            txt_empresa.Enabled = false;
+            txt_nombre_del_cliente.Enabled = false;
+            txt_apellido.Enabled = false;
+            txt_telefono.Enabled = false;
+            txt_direccion.Enabled = false;
+            txt_ciudad.Enabled = false;
+            txt_departamento.Enabled = false;
+            txt_codigo_postal.Enabled = false;
+            txt_pais.Enabled = false;
+            Cbox_empleadoAtiende.Enabled = false;
+        }
+
+        public void HabilitarTodo()
+        {
+            txt_empresa.Enabled = true;
+            txt_nombre_del_cliente.Enabled = true;
+            txt_apellido.Enabled = true;
+            txt_telefono.Enabled = true;
+            txt_direccion.Enabled = true;
+            txt_ciudad.Enabled = true;
+            txt_departamento.Enabled = true;
+            txt_codigo_postal.Enabled = true;
+            txt_pais.Enabled = true;
+            Cbox_empleadoAtiende.Enabled = true;
+        }
+
+        private void btn_habilitar_Click(object sender, EventArgs e)
+        {
+            HabilitarTodo();
         }
     }
 }

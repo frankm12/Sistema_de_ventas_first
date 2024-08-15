@@ -81,6 +81,7 @@ namespace Sistema_de_ventas_first
         private void Entrada_Ordenes_Load(object sender, EventArgs e)
         {
             LlenarComboBox();
+            DeshabilitarTodo();
         }
 
         private void btn_guardaro_Click(object sender, EventArgs e)
@@ -115,6 +116,30 @@ namespace Sistema_de_ventas_first
             {
                 MessageBox.Show("Error al guardar pago: " + ex.Message);
             }
+        }
+
+        private void btn_habilitar_Click(object sender, EventArgs e)
+        {
+            HabilitarTodo();
+        }
+        public void DeshabilitarTodo()
+        {
+            dtp_fechaRecibido.Enabled = false;
+            dtp_fechaLimiteEntrega.Enabled = false;
+            dtp_fechaEntrega.Enabled = false;
+            txt_estado.Enabled = false;
+            txt_observacion.Enabled = false;
+            Cbox_idcliente.Enabled = false;
+        }
+
+        public void HabilitarTodo()
+        {
+            dtp_fechaRecibido.Enabled = true;
+            dtp_fechaLimiteEntrega.Enabled = true;
+            dtp_fechaEntrega.Enabled = true;
+            txt_estado.Enabled = true;
+            txt_observacion.Enabled = true;
+            Cbox_idcliente.Enabled = true;
         }
     }
 }

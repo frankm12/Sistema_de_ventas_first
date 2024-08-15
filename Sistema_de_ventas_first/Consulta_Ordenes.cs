@@ -107,5 +107,10 @@ namespace Sistema_de_ventas_first
         {
             this.Dispose();
         }
+
+        private void lbl_Ordenes_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

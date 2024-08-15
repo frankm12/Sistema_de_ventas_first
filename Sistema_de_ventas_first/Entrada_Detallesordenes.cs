@@ -102,13 +102,14 @@ namespace Sistema_de_ventas_first
 
         private void btn_atras_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
         }
 
         private void Entrada_Detallesordenes_Load(object sender, EventArgs e)
         {
             LlenarComboBox();
             LlenarComboBox2();
+            DeshabilitarTodo();
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
@@ -117,7 +118,7 @@ namespace Sistema_de_ventas_first
             {
                 int id_orden = Convert.ToInt32(Cbox_idorden.SelectedValue);
                 int id_producto = Convert.ToInt32(Cbox_id_producto2.SelectedValue);
-                int  cantidadPedida= int.Parse(txt_cantidadpedida.Text);
+                int cantidadPedida = int.Parse(txt_cantidadpedida.Text);
                 decimal valorUnitario = Convert.ToDecimal(txt_valorunitario.Text);
                 DateTime ordenEntrega = Convert.ToDateTime(dtp_ordenentrega.Value);
 
@@ -141,6 +142,29 @@ namespace Sistema_de_ventas_first
             {
                 MessageBox.Show("Error al guardar detalles de orden: " + ex.Message);
             }
+
+        }
+        public void DeshabilitarTodo()
+        {
+            Cbox_idorden.Enabled = false;
+            Cbox_id_producto2.Enabled = false;
+            txt_cantidadpedida.Enabled = false;
+            txt_valorunitario.Enabled = false;
+            dtp_ordenentrega.Enabled = false;
+        }
+
+        public void HabilitarTodo()
+        {
+            Cbox_idorden.Enabled = true;
+            Cbox_id_producto2.Enabled = true;
+            txt_cantidadpedida.Enabled = true;
+            txt_valorunitario.Enabled = true;
+            dtp_ordenentrega.Enabled = true;
+        }
+
+        private void btn_habilitar_Click(object sender, EventArgs e)
+        {
+            HabilitarTodo();
         }
     }
 }

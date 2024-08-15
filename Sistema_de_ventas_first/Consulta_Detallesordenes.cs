@@ -71,7 +71,7 @@ namespace Sistema_de_ventas_first
 
         private void btn_atras_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
         }
 
         private void btn_editar_Click(object sender, EventArgs e)

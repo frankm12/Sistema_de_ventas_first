@@ -33,7 +33,7 @@ namespace Sistema_de_ventas_first
             dataAdapter.Fill(dataTable);
             dataGridView1.DataSource = dataTable;
             conexion_2.CerrarConexion();
-       
+
         }
         private void Empleados_Load_Click(object sender, EventArgs e)
         {
@@ -42,7 +42,7 @@ namespace Sistema_de_ventas_first
 
         private void btn_atras_Click(object sender, EventArgs e)
         {
-           this.Dispose();
+            this.Dispose();
         }
 
         private void bt_editar_Click(object sender, EventArgs e)
@@ -50,7 +50,7 @@ namespace Sistema_de_ventas_first
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 DataGridViewRow row = dataGridView1.SelectedRows[0];
-                string idEmpleado = row.Cells["Id_empleado"].Value.ToString();
+                int idEmpleado = int.Parse(row.Cells["Id_empleado"].Value.ToString());
                 string documento = row.Cells["documento"].Value.ToString();
                 string nombre = row.Cells["nombre"].Value.ToString();
                 string apellido = row.Cells["apellido"].Value.ToString();
@@ -61,6 +61,7 @@ namespace Sistema_de_ventas_first
 
                 Entrada_empleados entradaEmpleadosForm = new Entrada_empleados(idEmpleado, documento, nombre, apellido, extension, email, cargo, idOficina, true);
                 entradaEmpleadosForm.Show();
+
 
             }
             else
@@ -111,6 +112,17 @@ namespace Sistema_de_ventas_first
             conexion_2.CerrarConexion();
         }
 
+        private void btn_cargar_Click(object sender, EventArgs e)
+        {
+
+            SqlConnection conexion_a_base_de_datos = conexion_2.AbrirConexion();
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM empleados", conexion_a_base_de_datos);
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            dataGridView1.DataSource = dataTable;
+            conexion_2.CerrarConexion();
+
+        }
     }
 
 }

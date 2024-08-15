@@ -103,7 +103,7 @@ namespace Sistema_de_ventas_first
                 conexion.CerrarConexion();
             }
         }
-        public void Editar_empleados_boton(string documento, string nombre, string apellido, string extension, string email, string cargo, int oficina, string id_empleado)
+        public void Editar_empleados_boton(string documento, string nombre, string apellido, string extension, string email, string cargo, int oficina, int id_empleado)
         {
             Editar_empleados(documento, nombre, apellido, extension, email, cargo, oficina, Convert.ToInt32(id_empleado));
         }

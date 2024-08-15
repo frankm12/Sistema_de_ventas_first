@@ -31,29 +31,33 @@
             dataGridView1 = new DataGridView();
             btn_atras = new Button();
             btn_cargar = new Button();
-            txt_buscar = new TextBox();
-            lbl_buscar = new Label();
             btneditar = new Button();
             btneliminar = new Button();
+            lbl_clientes = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(11, 12);
+            dataGridView1.Location = new Point(11, 54);
+            dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(776, 285);
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(1341, 359);
             dataGridView1.TabIndex = 0;
             // 
             // btn_atras
             // 
             btn_atras.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_atras.Location = new Point(694, 327);
+            btn_atras.Location = new Point(1260, 427);
             btn_atras.Name = "btn_atras";
-            btn_atras.Size = new Size(94, 29);
+            btn_atras.Size = new Size(94, 31);
             btn_atras.TabIndex = 1;
             btn_atras.Text = "Atras";
             btn_atras.UseVisualStyleBackColor = true;
@@ -62,33 +66,17 @@
             // btn_cargar
             // 
             btn_cargar.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_cargar.Location = new Point(595, 327);
+            btn_cargar.Location = new Point(976, 428);
             btn_cargar.Name = "btn_cargar";
-            btn_cargar.Size = new Size(94, 29);
+            btn_cargar.Size = new Size(94, 31);
             btn_cargar.TabIndex = 2;
             btn_cargar.Text = "Cargar";
             btn_cargar.UseVisualStyleBackColor = true;
             btn_cargar.Click += btn_cargar_Click;
             // 
-            // txt_buscar
-            // 
-            txt_buscar.Location = new Point(14, 328);
-            txt_buscar.Name = "txt_buscar";
-            txt_buscar.Size = new Size(569, 27);
-            txt_buscar.TabIndex = 3;
-            // 
-            // lbl_buscar
-            // 
-            lbl_buscar.AutoSize = true;
-            lbl_buscar.Location = new Point(14, 305);
-            lbl_buscar.Name = "lbl_buscar";
-            lbl_buscar.Size = new Size(55, 20);
-            lbl_buscar.TabIndex = 4;
-            lbl_buscar.Text = "Buscar:";
-            // 
             // btneditar
             // 
-            btneditar.Location = new Point(11, 384);
+            btneditar.Location = new Point(1077, 427);
             btneditar.Margin = new Padding(3, 4, 3, 4);
             btneditar.Name = "btneditar";
             btneditar.Size = new Size(86, 31);
@@ -99,7 +87,7 @@
             // 
             // btneliminar
             // 
-            btneliminar.Location = new Point(117, 384);
+            btneliminar.Location = new Point(1168, 427);
             btneliminar.Margin = new Padding(3, 4, 3, 4);
             btneliminar.Name = "btneliminar";
             btneliminar.Size = new Size(86, 31);
@@ -108,19 +96,29 @@
             btneliminar.UseVisualStyleBackColor = true;
             btneliminar.Click += btneliminar_Click;
             // 
+            // lbl_clientes
+            // 
+            lbl_clientes.AutoSize = true;
+            lbl_clientes.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_clientes.Location = new Point(11, 5);
+            lbl_clientes.Name = "lbl_clientes";
+            lbl_clientes.Size = new Size(138, 46);
+            lbl_clientes.TabIndex = 8;
+            lbl_clientes.Text = "Clientes";
+            // 
             // Consulta_clientes
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 435);
+            ClientSize = new Size(1364, 476);
+            Controls.Add(lbl_clientes);
             Controls.Add(btneliminar);
             Controls.Add(btneditar);
-            Controls.Add(lbl_buscar);
-            Controls.Add(txt_buscar);
             Controls.Add(btn_cargar);
             Controls.Add(btn_atras);
             Controls.Add(dataGridView1);
             Name = "Consulta_clientes";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Consulta_clientes";
             Load += Consulta_clientes_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -133,9 +131,8 @@
         private DataGridView dataGridView1;
         private Button btn_atras;
         private Button btn_cargar;
-        private TextBox txt_buscar;
-        private Label lbl_buscar;
         private Button btneditar;
         private Button btneliminar;
+        private Label lbl_clientes;
     }
 }

@@ -112,5 +112,11 @@ namespace Sistema_de_ventas_first
             Form entradetallesordenes = new Entrada_Detallesordenes();
             entradetallesordenes.ShowDialog();
         }
+
+        private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Acerca_de acerca = new Acerca_de();
+            acerca.ShowDialog();
+        }
     }
 }

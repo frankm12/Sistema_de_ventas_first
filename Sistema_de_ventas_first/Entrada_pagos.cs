@@ -109,11 +109,33 @@ namespace Sistema_de_ventas_first
         private void Entrada_pagos_Load(object sender, EventArgs e)
         {
             LlenarComboBox3();
+            DeshabilitarTodo();
         }
 
         private void btn_atras_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
+        }
+
+        private void btn_habilitar_Click(object sender, EventArgs e)
+        {
+            HabilitarTodo();
+        }
+        public void DeshabilitarTodo()
+        {
+
+            Cbox_cliente.Enabled = false;
+            txt_numero_de_factura.Enabled = false;
+            dtp_fecha.Enabled = false;
+            txt_total_pago.Enabled = false;
+        }
+
+        public void HabilitarTodo()
+        {
+            Cbox_cliente.Enabled = true;
+            txt_numero_de_factura.Enabled = true;
+            dtp_fecha.Enabled = true;
+            txt_total_pago.Enabled = true;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Sistema_de_ventas_first
     public partial class Entrada_producto : Form
     {
         private La_conect conexion_2 = new La_conect();
-        int Id_producto ;
+        int Id_producto;
         string nombreProducto = "";
 
         bool Editar = false;
@@ -24,7 +24,7 @@ namespace Sistema_de_ventas_first
         {
             InitializeComponent();
         }
-      
+
 
 
         public void limpiarform()
@@ -51,59 +51,84 @@ namespace Sistema_de_ventas_first
             text_linea.Text = idLinea; // Convertir a string para mostrar en el textbox
             text_cantidad.Text = cantidad.ToString();
             text_precio.Text = precio.ToString();
-            
+
         }
 
         private void bt_guardar_Click(object sender, EventArgs e)
         {
-            
-                if (Editar == false)
+
+            if (Editar == false)
+            {
+                try
                 {
-                    try
-                    {
-                        string nombre = txt_nombre_bueno.Text;
-                        string idLinea = text_linea.Text; // Si idLinea es un string
-                        int cantidad = int.Parse(text_cantidad.Text);
-                        decimal precio = decimal.Parse(text_precio.Text);
+                    string nombre = txt_nombre_bueno.Text;
+                    string idLinea = text_linea.Text; // Si idLinea es un string
+                    int cantidad = int.Parse(text_cantidad.Text);
+                    decimal precio = decimal.Parse(text_precio.Text);
 
-                        Metodo metodos = new Metodo();
-                        metodos.Insertar_producto_boton(nombre, idLinea, cantidad, precio);
-                        MessageBox.Show("Producto agregado correctamente");
-                        drig.Actualizar69();
-                        limpiarform();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error al agregar producto: " + ex.Message);
-                    }
+                    Metodo metodos = new Metodo();
+                    metodos.Insertar_producto_boton(nombre, idLinea, cantidad, precio);
+                    MessageBox.Show("Producto agregado correctamente");
+                    drig.Actualizar69();
+                    limpiarform();
                 }
-                else
+                catch (Exception ex)
                 {
-                    try
-                    {
-                        int idProducto = Id_producto;
-                        string nombre = txt_nombre_bueno.Text;
-                        string idLinea = text_linea.Text; // Si idLinea es un string
-                        int cantidad = int.Parse(text_cantidad.Text);
-                        decimal precio = decimal.Parse(text_precio.Text);
-
-                        Metodo metodos = new Metodo();
-                        metodos.Editar_producto(idProducto, nombre, idLinea, cantidad, precio);
-                        MessageBox.Show("Producto editado correctamente");
-
-                        Editar = false;
-                        limpiarform();
-                        drig.Actualizar69();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error al editar producto: " + ex.Message);
-                    }
+                    MessageBox.Show("Error al agregar producto: " + ex.Message);
                 }
+            }
+            else
+            {
+                try
+                {
+                    int idProducto = Id_producto;
+                    string nombre = txt_nombre_bueno.Text;
+                    string idLinea = text_linea.Text; // Si idLinea es un string
+                    int cantidad = int.Parse(text_cantidad.Text);
+                    decimal precio = decimal.Parse(text_precio.Text);
 
-                this.Dispose();
+                    Metodo metodos = new Metodo();
+                    metodos.Editar_producto(idProducto, nombre, idLinea, cantidad, precio);
+                    MessageBox.Show("Producto editado correctamente");
+
+                    Editar = false;
+                    limpiarform();
+                    drig.Actualizar69();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al editar producto: " + ex.Message);
+                }
+            }
+
+            this.Dispose();
+        }
+
+        private void btn_habilitar_Click(object sender, EventArgs e)
+        {
+            HabilitarTodo();
+        }
+        public void DeshabilitarTodo()
+        {
+            txt_nombre_bueno.Enabled = false;
+            text_linea.Enabled = false;
+            text_cantidad.Enabled = false;
+            text_precio.Enabled = false;
+        }
+
+        public void HabilitarTodo()
+        {
+            txt_nombre_bueno.Enabled = true;
+            text_linea.Enabled = true;
+            text_cantidad.Enabled = true;
+            text_precio.Enabled = true;
+        }
+
+        private void Entrada_producto_Load(object sender, EventArgs e)
+        {
+            DeshabilitarTodo();
         }
     }
-    
+
 }
 

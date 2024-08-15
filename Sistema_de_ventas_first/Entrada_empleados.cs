@@ -19,7 +19,7 @@ namespace Sistema_de_ventas_first
         private La_conect conexion_2 = new La_conect();
         // aqui ponemos una variable vacia tipo string antes de inicializar el codigo con el fin de
         // almacenar datos en el futuro y poder convertirlos
-        string Id_empleado = "";
+        int Id_empleado;
         bool Editar = false;
         bool DesdeConsulta = false;
         private Consulta_empleadoscs consulta12 = new Consulta_empleadoscs();
@@ -28,14 +28,14 @@ namespace Sistema_de_ventas_first
             InitializeComponent();
         }
 
-        public Entrada_empleados(string idEmpleado, string documento, string nombre, string apellido, string extension, string email, string cargo, int idOficina, bool desdeConsulta = false)
+        public Entrada_empleados(int idEmpleado, string documento, string nombre, string apellido, string extension, string email, string cargo, int idOficina, bool desdeConsulta = false)
         {
             InitializeComponent();
             Editar = true;
             Id_empleado = idEmpleado;
             DesdeConsulta = desdeConsulta;
 
-            txt_documento.Text = documento.ToString();
+            maskedTextBox1.Text = documento.ToString();
             txt_nombre.Text = nombre;
             txt_apellido.Text = apellido;
             txt_extension.Text = extension;
@@ -46,7 +46,7 @@ namespace Sistema_de_ventas_first
 
         public void limpiarform()
         {
-            txt_documento.Clear();
+            maskedTextBox1.Clear();
             txt_nombre.Clear();
             txt_apellido.Clear();
             txt_extension.Clear();
@@ -83,6 +83,7 @@ namespace Sistema_de_ventas_first
         private void Entrada_empleados_Load(object sender, EventArgs e)
         {
             LlenarComboBox();
+            DeshabilitarTodo();
         }
 
         private void btn_guardar2_Click(object sender, EventArgs e)
@@ -91,7 +92,7 @@ namespace Sistema_de_ventas_first
             {
                 try
                 {
-                    string documento = txt_documento.Text;
+                    string documento = maskedTextBox1.Text;
                     string nombre = txt_nombre.Text;
                     string apellido = txt_apellido.Text;
                     string extension = txt_extension.Text;
@@ -104,6 +105,7 @@ namespace Sistema_de_ventas_first
                     MessageBox.Show("Empleado agregado correctamente");
                     limpiarform();
                     consulta12.ActualizarDatagrid();
+                    this.Dispose();
 
                 }
 
@@ -118,7 +120,7 @@ namespace Sistema_de_ventas_first
                 try
                 {
                     Metodo metodos = new Metodo();
-                    string documento = txt_documento.Text;
+                    string documento = maskedTextBox1.Text;
                     string nombre = txt_nombre.Text;
                     string apellido = txt_apellido.Text;
                     string extension = txt_extension.Text;
@@ -131,12 +133,34 @@ namespace Sistema_de_ventas_first
 
                     Editar = false;
                     limpiarform();
+                    this.Dispose();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error al editar empleado: " + ex.Message);
                 }
             }
+        }
+        public void DeshabilitarTodo()
+        {
+            maskedTextBox1.Enabled = false;
+            txt_nombre.Enabled = false;
+            txt_apellido.Enabled = false;
+            txt_extension.Enabled = false;
+            txt_email.Enabled = false;
+            txt_cargo.Enabled = false;
+            Cbox_oficina.Enabled = false;
+        }
+
+        public void HabilitarTodo()
+        {
+            maskedTextBox1.Enabled = true;
+            txt_nombre.Enabled = true;
+            txt_apellido.Enabled = true;
+            txt_extension.Enabled = true;
+            txt_email.Enabled = true;
+            txt_cargo.Enabled = true;
+            Cbox_oficina.Enabled = true;
         }
 
         private void lbl_cargo_Click(object sender, EventArgs e)
@@ -152,6 +176,11 @@ namespace Sistema_de_ventas_first
         private void txt_cargo_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_habilitar_Click(object sender, EventArgs e)
+        {
+            HabilitarTodo();
         }
     }
 }

@@ -268,6 +268,7 @@
             btn_habilitar.TabIndex = 31;
             btn_habilitar.Text = "Habilitar";
             btn_habilitar.UseVisualStyleBackColor = true;
+            btn_habilitar.Click += btn_habilitar_Click;
             // 
             // Entrada_clientes
             // 
@@ -300,6 +301,7 @@
             Controls.Add(lbl_entrada_clientes);
             Margin = new Padding(3, 2, 3, 2);
             Name = "Entrada_clientes";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Entrada_clientes";
             Load += Entrada_clientes_Load;
             ResumeLayout(false);

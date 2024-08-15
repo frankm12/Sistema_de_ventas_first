@@ -30,8 +30,6 @@
         {
             dataGridView1 = new DataGridView();
             lbl_Ordenes = new Label();
-            lbl_buscaro = new Label();
-            textBox1 = new TextBox();
             btn_editaro = new Button();
             btn_eliminaro = new Button();
             btn_cargaro = new Button();
@@ -41,45 +39,37 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 34);
+            dataGridView1.Location = new Point(14, 45);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
+            dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(580, 150);
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(1079, 412);
             dataGridView1.TabIndex = 0;
             // 
             // lbl_Ordenes
             // 
             lbl_Ordenes.AutoSize = true;
             lbl_Ordenes.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_Ordenes.Location = new Point(12, 6);
+            lbl_Ordenes.Location = new Point(14, 8);
             lbl_Ordenes.Name = "lbl_Ordenes";
-            lbl_Ordenes.Size = new Size(86, 25);
+            lbl_Ordenes.Size = new Size(109, 32);
             lbl_Ordenes.TabIndex = 1;
             lbl_Ordenes.Text = "Ordenes";
-            // 
-            // lbl_buscaro
-            // 
-            lbl_buscaro.AutoSize = true;
-            lbl_buscaro.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_buscaro.Location = new Point(12, 189);
-            lbl_buscaro.Name = "lbl_buscaro";
-            lbl_buscaro.Size = new Size(49, 17);
-            lbl_buscaro.TabIndex = 2;
-            lbl_buscaro.Text = "Buscar:";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(12, 209);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(378, 23);
-            textBox1.TabIndex = 3;
+            lbl_Ordenes.Click += lbl_Ordenes_Click;
             // 
             // btn_editaro
             // 
-            btn_editaro.Location = new Point(12, 253);
+            btn_editaro.Location = new Point(824, 465);
+            btn_editaro.Margin = new Padding(3, 4, 3, 4);
             btn_editaro.Name = "btn_editaro";
-            btn_editaro.Size = new Size(75, 26);
+            btn_editaro.Size = new Size(86, 35);
             btn_editaro.TabIndex = 4;
             btn_editaro.Text = "Editar";
             btn_editaro.UseVisualStyleBackColor = true;
@@ -87,9 +77,10 @@
             // 
             // btn_eliminaro
             // 
-            btn_eliminaro.Location = new Point(106, 253);
+            btn_eliminaro.Location = new Point(732, 465);
+            btn_eliminaro.Margin = new Padding(3, 4, 3, 4);
             btn_eliminaro.Name = "btn_eliminaro";
-            btn_eliminaro.Size = new Size(75, 26);
+            btn_eliminaro.Size = new Size(86, 35);
             btn_eliminaro.TabIndex = 5;
             btn_eliminaro.Text = "Eliminar";
             btn_eliminaro.UseVisualStyleBackColor = true;
@@ -97,9 +88,10 @@
             // 
             // btn_cargaro
             // 
-            btn_cargaro.Location = new Point(413, 208);
+            btn_cargaro.Location = new Point(916, 465);
+            btn_cargaro.Margin = new Padding(3, 4, 3, 4);
             btn_cargaro.Name = "btn_cargaro";
-            btn_cargaro.Size = new Size(75, 26);
+            btn_cargaro.Size = new Size(86, 35);
             btn_cargaro.TabIndex = 6;
             btn_cargaro.Text = "Cargar";
             btn_cargaro.UseVisualStyleBackColor = true;
@@ -107,9 +99,10 @@
             // 
             // btn_atraso
             // 
-            btn_atraso.Location = new Point(504, 208);
+            btn_atraso.Location = new Point(1008, 465);
+            btn_atraso.Margin = new Padding(3, 4, 3, 4);
             btn_atraso.Name = "btn_atraso";
-            btn_atraso.Size = new Size(75, 26);
+            btn_atraso.Size = new Size(86, 35);
             btn_atraso.TabIndex = 7;
             btn_atraso.Text = "Atras";
             btn_atraso.UseVisualStyleBackColor = true;
@@ -117,21 +110,21 @@
             // 
             // Consulta_Ordenes
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(604, 292);
+            ClientSize = new Size(1105, 513);
             Controls.Add(btn_atraso);
             Controls.Add(btn_cargaro);
             Controls.Add(btn_eliminaro);
             Controls.Add(btn_editaro);
-            Controls.Add(textBox1);
-            Controls.Add(lbl_buscaro);
             Controls.Add(lbl_Ordenes);
             Controls.Add(dataGridView1);
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             MdiChildrenMinimizedAnchorBottom = false;
             MinimizeBox = false;
             Name = "Consulta_Ordenes";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Consulta_Ordenes";
             Load += Consulta_Ordenes_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -143,8 +136,6 @@
 
         private DataGridView dataGridView1;
         private Label lbl_Ordenes;
-        private Label lbl_buscaro;
-        private TextBox textBox1;
         private Button btn_editaro;
         private Button btn_eliminaro;
         private Button btn_cargaro;
