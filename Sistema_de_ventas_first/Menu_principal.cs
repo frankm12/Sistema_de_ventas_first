@@ -73,6 +73,7 @@ namespace Sistema_de_ventas_first
             if (result == DialogResult.Yes)
             {
                 this.Dispose();
+                Application.Exit();
             }
         }
 
@@ -98,6 +99,18 @@ namespace Sistema_de_ventas_first
         {
             Form EntradaOrdenes = new Entrada_Ordenes();
             EntradaOrdenes.ShowDialog();
+        }
+
+        private void detallesDeOrdenesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form Consultadetallesordenes = new Consulta_Detallesordenes();
+            Consultadetallesordenes.ShowDialog();
+        }
+
+        private void detallesDeOrdenesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form entradetallesordenes = new Entrada_Detallesordenes();
+            entradetallesordenes.ShowDialog();
         }
     }
 }

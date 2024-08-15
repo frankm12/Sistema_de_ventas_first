@@ -103,6 +103,7 @@
             detallesDeOrdenesToolStripMenuItem1.Name = "detallesDeOrdenesToolStripMenuItem1";
             detallesDeOrdenesToolStripMenuItem1.Size = new Size(184, 22);
             detallesDeOrdenesToolStripMenuItem1.Text = "Detalles de Ordenes";
+            detallesDeOrdenesToolStripMenuItem1.Click += detallesDeOrdenesToolStripMenuItem1_Click;
             // 
             // productosToolStripMenuItem1
             // 
@@ -153,6 +154,7 @@
             detallesDeOrdenesToolStripMenuItem.Name = "detallesDeOrdenesToolStripMenuItem";
             detallesDeOrdenesToolStripMenuItem.Size = new Size(184, 22);
             detallesDeOrdenesToolStripMenuItem.Text = "Detalles de Ordenes";
+            detallesDeOrdenesToolStripMenuItem.Click += detallesDeOrdenesToolStripMenuItem_Click;
             // 
             // productosToolStripMenuItem
             // 

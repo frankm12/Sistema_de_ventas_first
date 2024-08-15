@@ -46,7 +46,7 @@ namespace Sistema_de_ventas_first
         }
         public void Insertar_empleados_boton(string documento, string nombre, string apellido, string extension, string email, string cargo, int oficina)
         {
-            Insertar_empleados(documento, nombre, apellido, extension, email, cargo, Convert.ToInt32(oficina));
+            Insertar_empleados(documento, nombre, apellido, extension, email, cargo, oficina);
         }
 
         public void Eliminar_empleados(int id)
@@ -453,7 +453,7 @@ namespace Sistema_de_ventas_first
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al editar pago: " + ex.Message);
+                MessageBox.Show("Error al editar orden: " + ex.Message);
             }
             finally
             {
@@ -464,6 +464,97 @@ namespace Sistema_de_ventas_first
         public void Editar_ordenes_boton(int id_orden, DateTime fechaRecibido, DateTime fechaLimiteEntrega, DateTime fechaEntrega, string estado, string observacion, int id_cliente)
         {
             Editar_ordenes(Convert.ToInt32(id_orden), fechaRecibido, fechaLimiteEntrega, fechaEntrega, estado, observacion, Convert.ToInt32(id_cliente));
+        }
+
+        public void Insertar_detallesordenes(int id_orden, int id_producto, int cantidadPedida, decimal valorUnitario, DateTime ordenEntrega)
+        {
+            SqlConnection conexion_a_base_de_datos = conexion.AbrirConexion();
+            try
+            {
+                comando.Connection = conexion_a_base_de_datos;
+                comando.CommandText = "Insertardetallesordenes";
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@id_orden", id_orden);
+                comando.Parameters.AddWithValue("@id_producto", id_producto);
+                comando.Parameters.AddWithValue("@cantidadPedida", cantidadPedida);
+                comando.Parameters.AddWithValue("@valorUnitario", valorUnitario);
+                comando.Parameters.AddWithValue("ordenEntrega", ordenEntrega);
+                comando.ExecuteNonQuery();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al insertar detalles de orden: " + ex.Message);
+            }
+
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+
+        public void Insertar_detallesordenes_boton(int id_orden, int id_producto, int cantidadPedida, decimal valorUnitario, DateTime ordenEntrega)
+        {
+            Insertar_detallesordenes(id_orden, id_producto, cantidadPedida, valorUnitario, ordenEntrega);
+        }
+
+        public void Eliminar_detallesordenes(int id)
+        {
+            SqlConnection conexion_a_basededatos = conexion.AbrirConexion();
+            try
+            {
+                comando.Connection = conexion_a_basededatos;
+                comando.CommandText = "Eliminardetallesordenes";
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@id_orden", id);
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar detalles de orden: " + ex.Message);
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+
+        public void Eliminar_detallesordenes_boton(int id)
+        {
+            Eliminar_detallesordenes(Convert.ToInt32(id));
+        }
+
+        public void Editar_detallesordenes(int id_orden, int id_producto, int cantidadPedida, decimal valorUnitario, DateTime ordenEntrega)
+        {
+            SqlConnection conexion_a_basededatos = conexion.AbrirConexion();
+            try
+            {
+                comando.Connection = conexion_a_basededatos;
+                comando.CommandText = "Editardetallesordenes";
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.Clear();
+                comando.Parameters.AddWithValue("@id_orden", id_orden);
+                comando.Parameters.AddWithValue("@id_producto", id_producto);
+                comando.Parameters.AddWithValue("@cantidadPedida", cantidadPedida);
+                comando.Parameters.AddWithValue("@valorUnitario", valorUnitario);
+                comando.Parameters.AddWithValue("@ordenEntrega", ordenEntrega);
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al editar detalles de orden: " + ex.Message);
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+
+        public void Editar_detallesordenes_boton(int id_orden, int id_producto, int cantidadPedida, decimal valorUnitario, DateTime ordenEntrega)
+        {
+            Editar_detallesordenes(id_orden, id_producto, cantidadPedida, valorUnitario, ordenEntrega);
         }
     }
 }

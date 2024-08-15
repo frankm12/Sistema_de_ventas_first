@@ -60,24 +60,22 @@
             // 
             // btn_atras
             // 
-            btn_atras.Cursor = Cursors.Hand;
             btn_atras.Location = new Point(28, 660);
-            btn_atras.Margin = new Padding(5);
+            btn_atras.Margin = new Padding(5, 5, 5, 5);
             btn_atras.Name = "btn_atras";
             btn_atras.Size = new Size(519, 48);
-            btn_atras.TabIndex = 9;
+            btn_atras.TabIndex = 5;
             btn_atras.Text = "Atras";
             btn_atras.UseVisualStyleBackColor = true;
             btn_atras.Click += btn_atras_Click;
             // 
             // txt_documento
             // 
-            txt_documento.Cursor = Cursors.IBeam;
             txt_documento.Location = new Point(28, 88);
-            txt_documento.Margin = new Padding(5);
+            txt_documento.Margin = new Padding(5, 5, 5, 5);
             txt_documento.Name = "txt_documento";
             txt_documento.Size = new Size(519, 27);
-            txt_documento.TabIndex = 1;
+            txt_documento.TabIndex = 6;
             txt_documento.TextChanged += txt_documento_TextChanged;
             // 
             // lbl_documento
@@ -102,12 +100,11 @@
             // 
             // txt_nombre
             // 
-            txt_nombre.Cursor = Cursors.IBeam;
             txt_nombre.Location = new Point(28, 164);
-            txt_nombre.Margin = new Padding(5);
+            txt_nombre.Margin = new Padding(5, 5, 5, 5);
             txt_nombre.Name = "txt_nombre";
             txt_nombre.Size = new Size(519, 27);
-            txt_nombre.TabIndex = 2;
+            txt_nombre.TabIndex = 8;
             // 
             // lbl_extension
             // 
@@ -121,12 +118,11 @@
             // 
             // txt_extension
             // 
-            txt_extension.Cursor = Cursors.IBeam;
             txt_extension.Location = new Point(28, 315);
-            txt_extension.Margin = new Padding(5);
+            txt_extension.Margin = new Padding(5, 5, 5, 5);
             txt_extension.Name = "txt_extension";
             txt_extension.Size = new Size(519, 27);
-            txt_extension.TabIndex = 4;
+            txt_extension.TabIndex = 12;
             // 
             // lbl_apellido
             // 
@@ -140,12 +136,11 @@
             // 
             // txt_apellido
             // 
-            txt_apellido.Cursor = Cursors.IBeam;
             txt_apellido.Location = new Point(28, 239);
-            txt_apellido.Margin = new Padding(5);
+            txt_apellido.Margin = new Padding(5, 5, 5, 5);
             txt_apellido.Name = "txt_apellido";
             txt_apellido.Size = new Size(519, 27);
-            txt_apellido.TabIndex = 3;
+            txt_apellido.TabIndex = 10;
             // 
             // lbl_cargo
             // 
@@ -160,12 +155,11 @@
             // 
             // txt_cargo
             // 
-            txt_cargo.Cursor = Cursors.IBeam;
             txt_cargo.Location = new Point(28, 459);
-            txt_cargo.Margin = new Padding(5);
+            txt_cargo.Margin = new Padding(5, 5, 5, 5);
             txt_cargo.Name = "txt_cargo";
             txt_cargo.Size = new Size(365, 27);
-            txt_cargo.TabIndex = 6;
+            txt_cargo.TabIndex = 16;
             txt_cargo.TextChanged += txt_cargo_TextChanged;
             // 
             // lbl_email
@@ -180,12 +174,11 @@
             // 
             // txt_email
             // 
-            txt_email.Cursor = Cursors.IBeam;
             txt_email.Location = new Point(28, 384);
-            txt_email.Margin = new Padding(5);
+            txt_email.Margin = new Padding(5, 5, 5, 5);
             txt_email.Name = "txt_email";
             txt_email.Size = new Size(365, 27);
-            txt_email.TabIndex = 5;
+            txt_email.TabIndex = 14;
             // 
             // lbl_oficina
             // 
@@ -199,24 +192,22 @@
             // 
             // Cbox_oficina
             // 
-            Cbox_oficina.Cursor = Cursors.Hand;
             Cbox_oficina.DropDownStyle = ComboBoxStyle.DropDownList;
             Cbox_oficina.FormattingEnabled = true;
             Cbox_oficina.Location = new Point(31, 533);
-            Cbox_oficina.Margin = new Padding(5);
+            Cbox_oficina.Margin = new Padding(5, 5, 5, 5);
             Cbox_oficina.Name = "Cbox_oficina";
             Cbox_oficina.Size = new Size(365, 28);
-            Cbox_oficina.TabIndex = 7;
+            Cbox_oficina.TabIndex = 19;
             Cbox_oficina.SelectedIndexChanged += Cbox_oficina_SelectedIndexChanged;
             // 
             // btn_guardar2
             // 
-            btn_guardar2.Cursor = Cursors.Hand;
             btn_guardar2.Location = new Point(28, 592);
-            btn_guardar2.Margin = new Padding(5);
+            btn_guardar2.Margin = new Padding(5, 5, 5, 5);
             btn_guardar2.Name = "btn_guardar2";
             btn_guardar2.Size = new Size(519, 48);
-            btn_guardar2.TabIndex = 8;
+            btn_guardar2.TabIndex = 21;
             btn_guardar2.Text = "Guardar";
             btn_guardar2.UseVisualStyleBackColor = true;
             btn_guardar2.Click += btn_guardar2_Click;
@@ -243,12 +234,8 @@
             Controls.Add(txt_documento);
             Controls.Add(btn_atras);
             Controls.Add(lbl_empleados);
-            Margin = new Padding(5);
-            MaximizeBox = false;
-            MinimizeBox = false;
+            Margin = new Padding(5, 5, 5, 5);
             Name = "Entrada_empleados";
-            ShowIcon = false;
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "Entrada_empleados";
             Load += Entrada_empleados_Load;
             ResumeLayout(false);
